@@ -24,17 +24,20 @@ body {
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".item").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      if (e.button === 0) { // ľavý klik
-        el.classList.add("selected");
-      } else if (e.button === 2) { // pravý klik
-        el.classList.remove("selected");
-      }
-    });
-    el.addEventListener("contextmenu", function (e) {
-      e.preventDefault(); // zabráni zobrazeniu kontextového menu
-    });
+  const items = Array.from(document.querySelectorAll(".item"));
+
+  document.body.addEventListener("click", function (e) {
+    if (e.button === 0) { // ľavý klik
+      const next = items.find(el => !el.classList.contains("selected"));
+      if (next) next.classList.add("selected");
+    }
+  });
+
+  document.body.addEventListener("contextmenu", function (e) {
+    e.preventDefault(); // zablokuje kontextové menu
+    const selectedItems = items.filter(el => el.classList.contains("selected"));
+    const last = selectedItems[selectedItems.length - 1];
+    if (last) last.classList.remove("selected");
   });
 });
 </script>
