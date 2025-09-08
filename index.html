@@ -4,24 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cessna 172 Checklist</title>
-<style>
-body {
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.item {
-  color: white;
-  cursor: pointer;
-  margin-left: 20px;
-}
-.selected {
-  color: gray;
-}
-.group-title {
-  color: red;
-}
-</style>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .group-title {
+      color: red;
+    }
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 20px;
+      cursor: pointer;
+      border-bottom: 1px dotted gray;
+    }
+    .item .label {
+      flex: 1;
+    }
+    .item .status {
+      flex-shrink: 0;
+      margin-left: 20px;
+      color: #FFD700;
+    }
+    .selected .label,
+    .selected .status {
+      color: gray;
+    }
+  </style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".item").forEach(function (el) {
@@ -42,36 +58,36 @@ document.addEventListener("DOMContentLoaded", function () {
 <body>
 
 <h3 class="group-title">Preflight - Predletová príprava</h3>
-<ul>
-  <li class="item">MSFS EFB – Flight Planning ........ AS DES</li>
-  <li class="item">Pushback & Pre-Positioning ........ AS DES</li>
-  <li class="item">Parking Brake ........ SET</li>
-  <li class="item">Circuit Breakers ........ IN</li>
-  <li class="item">Throttle ........ IDLE</li>
-  <li class="item">Mixture ........ CUT-OFF</li>
-  <li class="item">Alternate Static Air ........ OFF (pushed in)</li>
-  <li class="item">All Electrical Switches ........ OFF</li>
-  <li class="item">Avionics Master ........ OFF</li>
-  <li class="item">Ignition ........ OFF</li>
-  <li class="item">Bat & Alt Master ........ ON</li>
-  <li class="item">Fuel Quantity ........ CHECK</li>
-  <li class="item">Avionics Master 1 ........ ON</li>
-  <li class="item">→ verify Avionics Cooling is audible</li>
-  <li class="item">Volts (in Cockpit) ........ CHECK</li>
-  <li class="item">Avionics Master 1 ........ OFF</li>
-  <li class="item">Avionics Master 2 ........ ON</li>
-  <li class="item">→ verify Avionics Cooling is audible</li>
-  <li class="item">Avionics Master 2 ........ OFF</li>
-  <li class="item">Annunciator ........ CHECK & CONSIDER</li>
-  <li class="item">Annunciator Switch ........ TEST, CHECK, RELEASE</li>
-  <li class="item">Annunciator Brightness ........ BRT or DIM – AS REC</li>
-  <li class="item">Lights ........ CHECK (if required)</li>
-  <li class="item">Flaps ........ DOWN</li>
-  <li class="item">Pitot Heat ........ ON (30 seconds), then OFF</li>
-  <li class="item">Bat & Alt Master ........ OFF</li>
-  <li class="item">Elevator Trim ........ SET FOR T.O</li>
-  <li class="item">Fuel Shutoff Valve ........ FULL IN</li>
-  <li class="item">Fuel Selector ........ BOTH</li>
+<ul class="checklist">
+  <li class="item"><span class="label">MSFS EFB – Flight Planning</span><span class="status">AS DES</span></li>
+  <li class="item"><span class="label">Pushback & Pre-Positioning</span><span class="status">AS DES</span></li>
+  <li class="item"><span class="label">Parking Brake</span><span class="status">SET</span></li>
+  <li class="item"><span class="label">Circuit Breakers</span><span class="status">IN</span></li>
+  <li class="item"><span class="label">Throttle</span><span class="status">IDLE</span></li>
+  <li class="item"><span class="label">Mixture</span><span class="status">CUT-OFF</span></li>
+  <li class="item"><span class="label">Alternate Static Air</span><span class="status">OFF (pushed in)</span></li>
+  <li class="item"><span class="label">All Electrical Switches</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Avionics Master</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Ignition</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">Fuel Quantity</span><span class="status">CHECK</span></li>
+  <li class="item"><span class="label">Avionics Master 1</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
+  <li class="item"><span class="label">Volts (in Cockpit)</span><span class="status">CHECK</span></li>
+  <li class="item"><span class="label">Avionics Master 1</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Avionics Master 2</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
+  <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Annunciator</span><span class="status">CHECK & CONSIDER</span></li>
+  <li class="item"><span class="label">Annunciator Switch</span><span class="status">TEST, CHECK, RELEASE</span></li>
+  <li class="item"><span class="label">Annunciator Brightness</span><span class="status">BRT or DIM – AS REC</span></li>
+  <li class="item"><span class="label">Lights</span><span class="status">CHECK (if required)</span></li>
+  <li class="item"><span class="label">Flaps</span><span class="status">DOWN</span></li>
+  <li class="item"><span class="label">Pitot Heat</span><span class="status">ON (30 seconds), then OFF</span></li>
+  <li class="item"><span class="label">Bat & Alt Master</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Elevator Trim</span><span class="status">SET FOR T.O</span></li>
+  <li class="item"><span class="label">Fuel Shutoff Valve</span><span class="status">FULL IN</span></li>
+  <li class="item"><span class="label">Fuel Selector</span><span class="status">BOTH</span></li>
 </ul>
 
 </body>
