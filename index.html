@@ -42,6 +42,21 @@
     .selected .status {
       color: gray;
     }
+    #menuToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  font-size: 24px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
   </style>
 
 <script>
@@ -157,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </table>
 </div>
 
-<h3 class="group-title">Preflight - Predletová príprava</h3>
+<h3 id="preflight" class="group-title">Preflight – Predštartová kontrola
 <ul class="checklist">
   <li class="item"><span class="label">MSFS EFB – Flight Planning</span><span class="status">AS DES</span></li>
   <li class="item"><span class="label">Pushback & Pre-Positioning</span><span class="status">AS DES</span></li>
@@ -257,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">Autopilot</span><span class="status">PRESELECT ON</span></li>
   <li class="item"><span class="label">Transponder</span><span class="status">SQUAWK SET & STBY</span></li>
 </ul>
-<h3 class="group-title">Taxi – Pojazd</h3>
+<h3 id="taxi" class="group-title">Taxi – Pojazd</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Taxi Clearance)</span><span class="status">AS REQ</span></li>
   <li class="item"><span class="label">Taxi Lights</span><span class="status">ON</span></li>
@@ -485,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <p style="margin-top:10px; color: gray; font-style: italic;">
   All data for recommended Lean Mixture (50°F / ~+10°C Rich of Peak EGT).
 </p>
-<h3 class="group-title">Cruise – Horizontálny let</h3>
+<h3 id="cruise">Cruise – Horizontálny let</h3>
 <ul class="checklist">
   <li class="item"><span class="label">Cruise Power</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">LEAN AS REQ</span></li>
@@ -518,7 +533,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">ILS Frequency</span><span class="status">CONFIRM & SET</span></li>
   <li class="item"><span class="label">Minimums</span><span class="status">SET</span></li>
 </ul>
-<h3 class="group-title">Descent – Zahájenie klesania</h3>
+<h3 id="descent">Descent – Zahájenie klesania</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Descent Clearance)</span><span class="status">AS REQ</span></li>
   <li class="item"><span class="label">@ TOD</span><span class="status">INITIATE DESCENT</span></li>
@@ -548,4 +563,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </div>
 </body>
+  <button id="menuToggle">☰</button>
+  <div id="sectionMenu" class="hidden">
+  <ul>
+    <li data-target="preflight">Preflight</li>
+    <li data-target="taxi">Taxi</li>
+    <li data-target="cruise">Cruise</li>
+    <li data-target="descent">Descent</li>
+    <!-- doplň ďalšie sekcie -->
+  </ul>
+</div>
+<script>
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("sectionMenu");
+const items = menu.querySelectorAll("li");
+
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+
+let currentIndex = 0;
+
+menu.addEventListener("touchmove", (e) => {
+  const y = e.touches[0].clientY;
+  const step = Math.floor(y / (window.innerHeight / items.length));
+  currentIndex = Math.max(0, Math.min(items.length - 1, step));
+  items.forEach((el, i) => el.classList.toggle("active", i === currentIndex));
+});
+
+menu.addEventListener("touchend", () => {
+  const targetId = items[currentIndex].dataset.target;
+  const targetEl = document.getElementById(targetId);
+  if (targetEl) {
+    targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    menu.classList.add("hidden");
+  }
+});
+</script>
 </html>
