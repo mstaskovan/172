@@ -45,21 +45,31 @@
   </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const items = Array.from(document.querySelectorAll(".item"));
+  let selectedIndex = -1;
 
-  document.body.addEventListener("click", function (e) {
-    if (e.button === 0) {
-      const next = items.find(el => !el.classList.contains("selected"));
-      if (next) next.classList.add("selected");
+  document.body.addEventListener("click", (event) => {
+    if (event.button === 0 && !event.target.closest("button")) {
+      if (selectedIndex < items.length - 1) {
+        selectedIndex++;
+        items[selectedIndex].classList.add("selected");
+        items[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
   });
 
-  document.body.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-    const selectedItems = items.filter(el => el.classList.contains("selected"));
-    const last = selectedItems[selectedItems.length - 1];
-    if (last) last.classList.remove("selected");
+  document.body.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    if (!event.target.closest("button")) {
+      if (selectedIndex >= 0) {
+        items[selectedIndex].classList.remove("selected");
+        selectedIndex--;
+        if (selectedIndex >= 0) {
+          items[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    }
   });
 });
 </script>
