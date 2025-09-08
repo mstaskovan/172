@@ -634,31 +634,26 @@ document.addEventListener("DOMContentLoaded", () => {
   </ul>
 </div>
 <script>
-const toggle = document.getElementById("menuToggle");
-const menu = document.getElementById("sectionMenu");
-const items = menu.querySelectorAll("li");
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("sectionMenu");
+  const items = menu.querySelectorAll("li");
 
-toggle.addEventListener("click", () => {
-  menu.classList.toggle("hidden");
-});
+  // Zobraziť alebo skryť menu po kliknutí na tlačidlo
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
 
-let currentIndex = 0;
-
-menu.addEventListener("touchmove", (e) => {
-  const y = e.touches[0].clientY;
-  const step = Math.floor(y / (window.innerHeight / items.length));
-  currentIndex = Math.max(0, Math.min(items.length - 1, step));
-  items.forEach((el, i) => el.classList.toggle("active", i === currentIndex));
-});
-
-menu.addEventListener("touchend", () => {
-  const targetId = items[currentIndex].dataset.target;
-  const targetEl = document.getElementById(targetId);
-  if (targetEl) {
-    targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-    menu.classList.add("hidden");
-  }
-});
+  // Kliknutie na položku zoznamu → scroll na sekciu
+  items.forEach((el) => {
+    el.addEventListener("click", () => {
+      const targetId = el.dataset.target;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        menu.classList.add("hidden");
+      }
+    });
+  });
 </script>
 </body>  
 </html>
