@@ -625,26 +625,25 @@ document.addEventListener("DOMContentLoaded", () => {
   <button id="menuToggle">☰</button>
   <div id="sectionMenu" class="hidden">
   <ul>
-    <li data-target="preflight">Preflight – Predštartová kontrola</li>
-    <li data-target="taxi">Taxi – Pojazd</li>
-    <li data-target="cruise">Cruise – Horizontálny let</li>
-    <li data-target="descent">Descent – Zahájenie klesania</li>
-    <!-- doplň ďalšie sekcie -->
+  <li class="menu-item" data-target="preflight">Preflight</li>
+  <li class="menu-item" data-target="taxi">Taxi</li>
+  <li class="menu-item" data-target="cruise">Cruise</li>
+  <li class="menu-item" data-target="descent">Descent</li>
+  <!-- doplň ďalšie sekcie -->
   </ul>
 </div>
 <script>
   const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("sectionMenu");
-  const items = menu.querySelectorAll("li");
+  const menuItems = menu.querySelectorAll(".menu-item");
 
-  // Zobraziť alebo skryť menu po kliknutí na tlačidlo
   toggle.addEventListener("click", () => {
     menu.classList.toggle("hidden");
   });
 
-  // Kliknutie na položku zoznamu → scroll na sekciu
-  items.forEach((el) => {
-    el.addEventListener("click", () => {
+  menuItems.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.stopPropagation(); // zabráni preletu kliknutia do iného skriptu
       const targetId = el.dataset.target;
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
@@ -654,5 +653,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 </script>
+
 </body>  
 </html>
