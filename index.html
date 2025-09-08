@@ -17,23 +17,26 @@
       list-style: none;
       padding-left: 0;
     }
-  .item {
-  display: flex;
-  justify-content: space-between;
+ .item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
   margin-left: 20px;
   cursor: pointer;
   border-bottom: 1px dotted gray;
+  padding: 4px 0;
+  gap: 10px;
 }
 
 .item .label {
-  min-width: 300px; /* nastavíš podľa toho, ako široké sú názvy */
   text-align: left;
+  word-break: break-word;
 }
 
 .item .status {
-  min-width: 150px; /* šírka stĺpca pre stav */
   text-align: right;
   color: #FFD700;
+  white-space: nowrap;
 }
     .selected .label,
     .selected .status {
