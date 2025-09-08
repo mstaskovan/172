@@ -233,8 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </table>
 </div>
 
-<h3 id="preflight" class="group-title">Preflight – Predštartová kontrola
-<ul class="checklist">
+<h3 id="preflight" class="group-title">Preflight – Predštartová kontrola<ul class="checklist">
   <li class="item"><span class="label">MSFS EFB – Flight Planning</span><span class="status">AS DES</span></li>
   <li class="item"><span class="label">Pushback & Pre-Positioning</span><span class="status">AS DES</span></li>
   <li class="item"><span class="label">Parking Brake</span><span class="status">SET</span></li>
@@ -561,7 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <p style="margin-top:10px; color: gray; font-style: italic;">
   All data for recommended Lean Mixture (50°F / ~+10°C Rich of Peak EGT).
 </p>
-<h3 id="cruise">Cruise – Horizontálny let</h3>
+<h3 id="cruise" class="group-title">Cruise – Horizontálny let</h3>
 <ul class="checklist">
   <li class="item"><span class="label">Cruise Power</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">LEAN AS REQ</span></li>
@@ -594,7 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">ILS Frequency</span><span class="status">CONFIRM & SET</span></li>
   <li class="item"><span class="label">Minimums</span><span class="status">SET</span></li>
 </ul>
-<h3 id="descent">Descent – Zahájenie klesania</h3>
+<h3 id="descent" class="group-title">Descent – Zahájenie klesania</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Descent Clearance)</span><span class="status">AS REQ</span></li>
   <li class="item"><span class="label">@ TOD</span><span class="status">INITIATE DESCENT</span></li>
@@ -626,10 +625,10 @@ document.addEventListener("DOMContentLoaded", () => {
   <button id="menuToggle">☰</button>
   <div id="sectionMenu" class="hidden">
   <ul>
-    <li data-target="preflight">Preflight</li>
-    <li data-target="taxi">Taxi</li>
-    <li data-target="cruise">Cruise</li>
-    <li data-target="descent">Descent</li>
+    <li data-target="preflight">Preflight – Predštartová kontrola</li>
+    <li data-target="taxi">Taxi – Pojazd</li>
+    <li data-target="cruise">Cruise – Horizontálny let</li>
+    <li data-target="descent">Descent – Zahájenie klesania</li>
     <!-- doplň ďalšie sekcie -->
   </ul>
 </div>
