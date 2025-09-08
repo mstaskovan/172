@@ -482,6 +482,70 @@ document.addEventListener("DOMContentLoaded", () => {
       <tr><td>12,000 ft</td><td style="text-align:center;">2,100</td><td style="text-align:center;">97</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
     </tbody>
   </table>
+  <p style="margin-top:10px; color: gray; font-style: italic;">
+  All data for recommended Lean Mixture (50°F / ~+10°C Rich of Peak EGT).
+</p>
+<h3 class="group-title">Cruise – Horizontálny let</h3>
+<ul class="checklist">
+  <li class="item"><span class="label">Cruise Power</span><span class="status">SET</span></li>
+  <li class="item"><span class="label">Mixture</span><span class="status">LEAN AS REQ</span></li>
+</ul>
+<h3 class="group-title">Top of Descent – Pravidlo palca</h3>
+<p style="margin-bottom:10px; font-style: italic; color: gray;">
+  Vzorec: <strong>(Cruise Altitude – Target Altitude) / 1,000 × Faktor + 10 = vzdialenosť v NM</strong>
+</p>
+
+<div style="overflow-x:auto;">
+  <table style="width:100%; border-collapse: collapse; color: white;">
+    <thead>
+      <tr style="border-bottom: 1px solid gray;">
+        <th style="text-align:left;">Uhol zostupu</th>
+        <th style="text-align:center;">Faktor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2°</td><td style="text-align:center;">3.5</td></tr>
+      <tr><td>3°</td><td style="text-align:center;">3.0</td></tr>
+      <tr><td>4°</td><td style="text-align:center;">2.5</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3 class="group-title">Descent Preparation – najneskôr 25 NM pred TOD</h3>
+<ul class="checklist">
+  <li class="item"><span class="label">Approach & Landing Data (Rwy, Weather)</span><span class="status">CONFIRM</span></li>
+  <li class="item"><span class="label">GPS Flight Plan Alignment</span><span class="status">AS DES</span></li>
+  <li class="item"><span class="label">ILS / Final Fix for ILS Approach Page</span><span class="status">INSERT FOR REFERENCE VS</span></li>
+  <li class="item"><span class="label">ILS Frequency</span><span class="status">CONFIRM & SET</span></li>
+  <li class="item"><span class="label">Minimums</span><span class="status">SET</span></li>
+</ul>
+<h3 class="group-title">Descent – Zahájenie klesania</h3>
+<ul class="checklist">
+  <li class="item"><span class="label">ATC (Descent Clearance)</span><span class="status">AS REQ</span></li>
+  <li class="item"><span class="label">@ TOD</span><span class="status">INITIATE DESCENT</span></li>
+  <li class="item"><span class="label">Preselect Descent Altitude</span><span class="status">USE FINAL FIX / LAST WP</span></li>
+  <li class="item"><span class="label">Autopilot Descent Mode</span><span class="status">ACTIVATE</span></li>
+  <li class="item"><span class="label">CDU VNAV Page</span><span class="status">USE TO ADJUST VS</span></li>
+  <li class="item"><span class="label">Pressurization Controller</span><span class="status">SET</span></li>
+  <li class="item"><span class="label">Target Cabin Altitude</span><span class="status">500 ft ABOVE LANDING ALT</span></li>
+  <li class="item"><span class="label">Pressurization / Temp / Oxygen</span><span class="status">MONITOR</span></li>
+</ul>
+<h3 class="group-title">@ Transition Flight Level (ak nad FL100)</h3>
+<ul class="checklist">
+  <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">SET LOCAL QNH</span></li>
+</ul>
+<p style="margin-top:10px; color: gray; font-style: italic;">
+  For a 3° descent path: calculate TOD, activate AP VS Mode at TOD, and match vertical speed to 5 × Ground Speed. Max recommended descent speed is 129 KIAS. Adjust VS regularly and optionally cross-check with VNAV Page Target VS.
+</p>
+<h3 class="group-title">Visual Pattern Approach – ~10 NM pred vstupom do okruhu</h3>
+<ul class="checklist">
+  <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">CHECK LOCAL QNH</span></li>
+  <li class="item"><span class="label">Landing Lights</span><span class="status">AS REQ / ON</span></li>
+  <li class="item"><span class="label">Mixture</span><span class="status">AS REQ / FULL RICH</span></li>
+</ul>
+<p style="margin-top:10px; color: gray; font-style: italic;">
+  Vizuálny okruh sa zvyčajne začína približne 10 NM od letiska. Pred vstupom do okruhu je dôležité nastaviť tlak (QNH), zapnúť pristávacie svetlá a upraviť zmes paliva podľa výšky a výkonu. Vizuálny prístup vyžaduje neustále sledovanie polohy voči dráhe, najmä pri otočke na základný a finálny úsek.
+</p>
+
 </div>
 </body>
 </html>
