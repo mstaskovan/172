@@ -76,24 +76,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </head>
 <body>
-<h3 class="group-title">[Názov tabuľky]</h3>
+<h3 class="group-title">Specifications & Limits – Špecifikácie a limity</h3>
 <div style="overflow-x:auto;">
   <table style="width:100%; border-collapse: collapse; color: white;">
     <thead>
       <tr style="border-bottom: 1px solid gray;">
-        <th style="text-align:left;">[Stĺpec 1]</th>
-        <th style="text-align:center;">[Stĺpec 2]</th>
-        <th style="text-align:center;">[Stĺpec 3]</th>
-        <!-- Pridaj ďalšie stĺpce podľa potreby -->
+        <th style="text-align:left;">Parameter</th>
+        <th style="text-align:center;">Utility</th>
+        <th style="text-align:center;">Normal</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>[Hodnota 1]</td>
-        <td style="text-align:center;">[Hodnota 2]</td>
-        <td style="text-align:center;">[Hodnota 3]</td>
+        <td>Max Takeoff Weight</td>
+        <td style="text-align:center;">2,200 lbs</td>
+        <td style="text-align:center;">2,550 lbs</td>
       </tr>
-      <!-- Ďalšie riadky -->
+      <tr>
+        <td>Max Landing Weight</td>
+        <td style="text-align:center;">2,200 lbs</td>
+        <td style="text-align:center;">2,550 lbs</td>
+      </tr>
+      <tr>
+        <td>VFE – Flaps 0–10°</td>
+        <td colspan="2" style="text-align:center;">110 KIAS</td>
+      </tr>
+      <tr>
+        <td>VFE – Flaps >10°</td>
+        <td colspan="2" style="text-align:center;">85 KIAS</td>
+      </tr>
+      <tr>
+        <td>Service Ceiling</td>
+        <td colspan="2" style="text-align:center;">~14,000 ft</td>
+      </tr>
+      <tr>
+        <td>Load Factor – Flaps UP</td>
+        <td style="text-align:center;">-1.76 / +4.4g</td>
+        <td style="text-align:center;">-1.52 / +3.8g</td>
+      </tr>
+      <tr>
+        <td>Load Factor – Flaps DOWN</td>
+        <td style="text-align:center;">0 / +3.0g</td>
+        <td style="text-align:center;">0 / +3.0g</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3 class="group-title">Fuel Planning – Plánovanie paliva (orientačne)</h3>
+<div style="overflow-x:auto;">
+  <table style="width:100%; border-collapse: collapse; color: white;">
+    <thead>
+      <tr style="border-bottom: 1px solid gray;">
+        <th style="text-align:left;">Distance</th>
+        <th style="text-align:center;">Gallons</th>
+        <th style="text-align:center;">Weight (lbs)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>150 NM</td>
+        <td style="text-align:center;">17</td>
+        <td style="text-align:center;">100</td>
+      </tr>
+      <tr>
+        <td>300 NM</td>
+        <td style="text-align:center;">30</td>
+        <td style="text-align:center;">180</td>
+      </tr>
+      <tr>
+        <td>450 NM</td>
+        <td style="text-align:center;">43</td>
+        <td style="text-align:center;">260</td>
+      </tr>
+      <tr>
+        <td>600 NM</td>
+        <td style="text-align:center;">57</td>
+        <td style="text-align:center;">340</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -330,7 +389,15 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">At safe altitude</span><span class="status">FLAPS UP (ABOVE 60 KIAS)</span></li>
   <li class="item"><span class="label">Accelerate</span><span class="status">TO 75–85 KIAS</span></li>
 </ul>
-
+<h3 class="group-title">After Takeoff / Climb – Po vzlete / Stúpanie</h3>
+<ul class="checklist">
+  <li class="item"><span class="label">Climb Power & Speed</span><span class="status">SET</span></li>
+  <li class="item"><span class="label">Flaps</span><span class="status">UP</span></li>
+  <li class="item"><span class="label">Taxi Light</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Landing Lights</span><span class="status">AS DES</span></li>
+  <li class="item"><span class="label">@ Transition Altitude</span><span class="status"></span></li>
+  <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">SET STD (29.92 / 1013)</span></li>
+</ul>
 
 
 </body>
