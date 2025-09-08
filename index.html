@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cessna 172 Checklist</title>
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.item {
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.selected {
+  color: gray;
+}
+.group-title {
+  color: red;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".item").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      if (e.button === 0) { // ľavý klik
+        el.classList.add("selected");
+      } else if (e.button === 2) { // pravý klik
+        el.classList.remove("selected");
+      }
+    });
+    el.addEventListener("contextmenu", function (e) {
+      e.preventDefault(); // zabráni zobrazeniu kontextového menu
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<h3 class="group-title">Cessna 172 - Preflight Checklist</h3>
+<ul>
+  <li class="item">Max Ramp Weight: 2558 lbs</li>
+  <li class="item">Max Takeoff Weight: 2550 lbs</li>
+  <li class="item">Max Landing Weight: 2550 lbs</li>
+  <li class="item">Max Useful Load: 878 lbs</li>
+  <li class="item">Max Baggage: 120 lbs</li>
+  <li class="item">Max Flaps Up Speed: 129 KIAS</li>
+  <li class="item">Max Flaps Down Speed: 100 KIAS</li>
+  <li class="item">Fuel Capacity: 56 gal</li>
+  <li class="item">Usable Fuel: 53 gal</li>
+  <li class="item">Fuel Burn: 9.8 gal/hr</li>
+  <li class="item">Taxi Fuel: 0.5 gal</li>
+  <li class="item">Reserve Fuel: 5.0 gal</li>
+  <li class="item">Remove Tie Downs</li>
+  <li class="item">Remove Chocks</li>
+  <li class="item">Remove Pitot Cover</li>
+  <li class="item">Remove Control Lock</li>
+  <li class="item">Remove Engine Inlet Cover</li>
+  <li class="item">Remove Fuel Vent Cover</li>
+  <li class="item">Remove Cabin Air Inlet/Outlet Covers</li>
+  <li class="item">Remove Cabin Heat Inlet/Outlet Covers</li>
+  <li class="item">Recharge Battery (if needed)</li>
+</ul>
+
+</body>
+</html>
