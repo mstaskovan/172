@@ -42,13 +42,19 @@
     gap: 10px;
     transition: background 0.3s, border-left 0.3s;
   }
-  .item.subitem {
+  .linked-subitem {
     padding-left: 20px;
     font-style: italic;
     font-size: 0.95em;
     opacity: 0.85;
   }
-
+  .subitem {
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 0.95em;
+    opacity: 0.85;
+    cursor: pointer;
+  }
   .item .label {
     text-align: left;
     word-break: break-word;
@@ -150,16 +156,33 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Zahrni aj subitem položky do výberu
-  const items = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
+  const allItems = Array.from(document.querySelectorAll("ul.checklist .item"));
+  const linkedMap = new Map();
+
+  // Mapovanie viazaných subitemov k ich hlavným položkám
+  allItems.forEach((item, index) => {
+    if (item.classList.contains("has-linked")) {
+      const next = item.nextElementSibling;
+      if (next && next.classList.contains("linked-subitem")) {
+        linkedMap.set(item, next);
+      }
+    }
+  });
+
   let selectedIndex = -1;
 
   document.body.addEventListener("click", (event) => {
     if (event.button === 0 && !event.target.closest("button")) {
-      if (selectedIndex < items.length - 1) {
+      if (selectedIndex < allItems.length - 1) {
         selectedIndex++;
-        items[selectedIndex].classList.add("selected");
-        items[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+        const currentItem = allItems[selectedIndex];
+        currentItem.classList.add("selected");
+        currentItem.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Ak má viazaný subitem, označ ho tiež
+        if (linkedMap.has(currentItem)) {
+          linkedMap.get(currentItem).classList.add("selected");
+        }
       }
     }
   });
@@ -168,10 +191,17 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     if (!event.target.closest("button")) {
       if (selectedIndex >= 0) {
-        items[selectedIndex].classList.remove("selected");
+        const currentItem = allItems[selectedIndex];
+        currentItem.classList.remove("selected");
+
+        // Odznač aj viazaný subitem, ak existuje
+        if (linkedMap.has(currentItem)) {
+          linkedMap.get(currentItem).classList.remove("selected");
+        }
+
         selectedIndex--;
         if (selectedIndex >= 0) {
-          items[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+          allItems[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }
@@ -286,8 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
   <li class="item"><span class="label">Volts (in Cockpit)</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 1</span><span class="status">OFF</span></li>
-  <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
-  <li class="item subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status">CHECK</span></li>
+  <li class="item has-linked"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
+  <li class="linked-subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">Annunciator</span><span class="status">CHECK & CONSIDER</span></li>
   <li class="item"><span class="label">Annunciator Switch</span><span class="status">TEST, CHECK, RELEASE</span></li>
@@ -370,12 +400,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <h3 id="taxi" class="group-title">Taxi</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Taxi Clearance)</span><span class="status">AS REQ</span></li>
-  <li class="item"><span class="label">Taxi Lights</span><span class="status">ON</span></li>
-  <li class="item"><span class="label">→ Release Parking Brake</span><span class="status"></span></li>
-  <li class="item"><span class="label">→ Check Braking and Steering</span><span class="status"></span></li>
-  <li class="item"><span class="label">→ Check Engine & Flight Instruments</span><span class="status"></span></li>
-  <li class="item"><span class="label">→ Max Taxi Speed</span><span class="status">20–30 kts (5 kts during turns)</span></li>
-  <li class="item"><span class="label">→ When crossing a runway</span><span class="status">Strobes ON</span></li>
+   <!-- Typ 1: nezávislý subitem -->
+  <li class="item"><span class="label">Taxi Lights</span><span class="status"></span></li>
+  <li class="subitem"><span class="label">→ Release Parking Brake</span><span class="status"></span></li>
+  <li class="subitem"><span class="label">→ Check Braking and Steering</span><span class="status"></span></li>
+  <li class="subitem"><span class="label">→ Check Engine & Flight Instruments</span><span class="status"></span></li>
+  <li class="subitem"><span class="label">→ Max Taxi Speed = 20–30 kts (5 kts during turns)</span><span class="status"></span></li>
+  <li class="subitem"><span class="label">→ When crossing a runway → strobes ON</span><span class="status"></span></li>
 </ul>
 <h3 class="group-title">Before Takeoff – Engine Runup</h3>
 <ul class="checklist">
