@@ -42,6 +42,12 @@
     gap: 10px;
     transition: background 0.3s, border-left 0.3s;
   }
+  .item.subitem {
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
 
   .item .label {
     text-align: left;
@@ -144,7 +150,8 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const items = Array.from(document.querySelectorAll("ul.checklist .item"));
+  // Zahrni aj subitem položky do výberu
+  const items = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
   let selectedIndex = -1;
 
   document.body.addEventListener("click", (event) => {
@@ -279,8 +286,8 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
   <li class="item"><span class="label">Volts (in Cockpit)</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 1</span><span class="status">OFF</span></li>
-  <li class="item"><span class="label">Avionics Master 2</span><span class="status">ON</span></li>
-  <li class="item"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
+  <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
+  <li class="item subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">Annunciator</span><span class="status">CHECK & CONSIDER</span></li>
   <li class="item"><span class="label">Annunciator Switch</span><span class="status">TEST, CHECK, RELEASE</span></li>
