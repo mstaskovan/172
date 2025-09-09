@@ -156,7 +156,8 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const allItems = Array.from(document.querySelectorAll("ul.checklist .item"));
+  // Zahrni všetky označiteľné položky: item, subitem, has-linked
+  const allItems = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
   const linkedMap = new Map();
 
   // Mapovanie viazaných subitemov k ich hlavným položkám
