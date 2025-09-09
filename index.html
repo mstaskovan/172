@@ -153,17 +153,19 @@
     font-weight: bold;
   }
   .tag {
-  display: inline-block;
-  padding: 2px 6px;
-  margin-right: 8px;
-  border-radius: 4px;
-  font-size: 0.75em;
-  font-weight: bold;
-  color: white;
-  background-color: #666;
-  text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 6px;
+    margin-right: 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: white;
+    background-color: #666;
+    text-transform: uppercase;
+    white-space: nowrap;        /* zabráni rozťahovaniu */
+    width: fit-content;         /* obopne text */
+    max-width: max-content;     /* zabezpečí kompaktnosť */
   }
-
   /* Farebné varianty podľa typu */
   .tag.g1000 {
     background-color: #007ACC; /* modrá */
@@ -343,8 +345,8 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="linked-subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
   <li class="item"><span class="tag classic">CLASSIC</span><span class="label">Annunciator</span><span class="status">CHECK & CONSIDER</span></li>
-  <li class="item"><span class="label">Annunciator Switch</span><span class="status">TEST, CHECK, RELEASE</span></li>
-  <li class="item"><span class="label">Annunciator Brightness</span><span class="status">BRT or DIM – AS REC</span></li>
+  <li class="item"><span class="tag classic">CLASSIC</span><span class="label">Annunciator Switch</span><span class="status">TEST, CHECK, RELEASE</span></li>
+  <li class="item"><span class="tag classic">CLASSIC</span><span class="label">Annunciator Brightness</span><span class="status">BRT or DIM – AS REC</span></li>
   <li class="item"><span class="label">Lights</span><span class="status">CHECK (if required)</span></li>
   <li class="item"><span class="label">Flaps</span><span class="status">DOWN</span></li>
   <li class="item"><span class="label">Pitot Heat</span><span class="status">ON (30 seconds), then OFF</span></li>
@@ -463,7 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <li class="item"><span class="label">Flaps</span><span class="status">VERIFY SET FOR T.O. (0–10°)</span></li>
   <li class="item"><span class="label">Pitot Heat</span><span class="status">AS REQ</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">AS REQ / FULL RICH</span></li>
-  <li class="item"><span class="label">G1000 Cabin PWR 12 V Switch</span><span class="status">OFF</span></li>
+  <li class="item"><span class="tag g1000">G1000</span><span class="label">Cabin PWR 12 V Switch</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">WX Radar (if installed)</span><span class="status">AS DESIRED</span></li>
   <li class="item"><span class="label">ATC (Departure Clearance)</span><span class="status">AS DES</span></li>
 </ul>
