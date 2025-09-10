@@ -192,71 +192,8 @@
     bottom: 20px; /* nižšie */
   } */
 </style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Zahrni všetky označiteľné položky: item, subitem, has-linked
-  const allItems = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
-  const linkedMap = new Map();
-
-  // Mapovanie viazaných subitemov k ich hlavným položkám
-  allItems.forEach((item, index) => {
-    if (item.classList.contains("has-linked")) {
-      const next = item.nextElementSibling;
-      if (next && next.classList.contains("linked-subitem")) {
-        linkedMap.set(item, next);
-      }
-    }
-  });
-
-  let selectedIndex = -1;
-
-  document.body.addEventListener("click", (event) => {
-    // Ignoruj kliky na tlačidlá a menu položky
-    if (
-      event.button === 0 &&
-      !event.target.closest("button") &&
-      !event.target.closest(".menu-item")
-    ) {
-      if (selectedIndex < allItems.length - 1) {
-        selectedIndex++;
-        const currentItem = allItems[selectedIndex];
-        currentItem.classList.add("selected");
-        currentItem.scrollIntoView({ behavior: "smooth", block: "center" });
-
-        // Ak má viazaný subitem, označ ho tiež
-        if (linkedMap.has(currentItem)) {
-          linkedMap.get(currentItem).classList.add("selected");
-        }
-      }
-    }
-  });
-
-  document.body.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-    if (
-      !event.target.closest("button") &&
-      !event.target.closest(".menu-item")
-    ) {
-      if (selectedIndex >= 0) {
-        const currentItem = allItems[selectedIndex];
-        currentItem.classList.remove("selected");
-
-        // Odznač aj viazaný subitem, ak existuje
-        if (linkedMap.has(currentItem)) {
-          linkedMap.get(currentItem).classList.remove("selected");
-        }
-
-        selectedIndex--;
-        if (selectedIndex >= 0) {
-          allItems[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      }
-    }
-  });
-});
-</script>
-
 </head>
+  
 <body>
   <h3 class="group-title">Preface</h3>
 <p>
@@ -351,15 +288,15 @@ document.addEventListener("DOMContentLoaded", () => {
     </tbody>
   </table>
 </div>
-<h3 class="group-title">Notes on <span class="tag classic">Classic</span> / <span class="tag g1000">G1000</span> / <span class="tag wbsim">WB SIM</span> 172 Versions</h3>
+<h3 class="group-title">Notes on Classic / G1000 / WB SIM 172 Versions</h3>
 <p>
-  This checklist can be used for the <span class="tag classic">Classic</span> and <span class="tag g1000">G1000</span> versions, as well as the <span class="tag wbsim">WB SIM</span> 172 payware addon.
+  This checklist can be used for the Classic and G1000 versions, as well as the WB SIM 172 payware addon.
 </p>
 <p>
   Items are marked respectively with <span class="tag g1000">G1000</span>, <span class="tag classic">Classic</span>, or <span class="tag wbsim">WB SIM</span> if only applicable to one version.
 </p>
 <p>
-  See the last page for how to use the <span class="tag wbsim">WB SIM</span> ADF options menu.
+  See the last page for how to use the WB SIM ADF options menu.
 </p>
 <h3 id="preflight" class="group-title">Preflight</h3>
 <ul class="checklist">
@@ -802,6 +739,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isMenuOpen && !clickedInsideMenu && !clickedMenuToggle) {
       sectionMenu.classList.remove("visible");
+    }
+  });
+});
+</script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Zahrni všetky označiteľné položky: item, subitem, has-linked
+  const allItems = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
+  const linkedMap = new Map();
+
+  // Mapovanie viazaných subitemov k ich hlavným položkám
+  allItems.forEach((item, index) => {
+    if (item.classList.contains("has-linked")) {
+      const next = item.nextElementSibling;
+      if (next && next.classList.contains("linked-subitem")) {
+        linkedMap.set(item, next);
+      }
+    }
+  });
+
+  let selectedIndex = -1;
+
+  document.body.addEventListener("click", (event) => {
+    // Ignoruj kliky na tlačidlá a menu položky
+    if (
+      event.button === 0 &&
+      !event.target.closest("button") &&
+      !event.target.closest(".menu-item")
+    ) {
+      if (selectedIndex < allItems.length - 1) {
+        selectedIndex++;
+        const currentItem = allItems[selectedIndex];
+        currentItem.classList.add("selected");
+        currentItem.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Ak má viazaný subitem, označ ho tiež
+        if (linkedMap.has(currentItem)) {
+          linkedMap.get(currentItem).classList.add("selected");
+        }
+      }
+    }
+  });
+
+  document.body.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    if (
+      !event.target.closest("button") &&
+      !event.target.closest(".menu-item")
+    ) {
+      if (selectedIndex >= 0) {
+        const currentItem = allItems[selectedIndex];
+        currentItem.classList.remove("selected");
+
+        // Odznač aj viazaný subitem, ak existuje
+        if (linkedMap.has(currentItem)) {
+          linkedMap.get(currentItem).classList.remove("selected");
+        }
+
+        selectedIndex--;
+        if (selectedIndex >= 0) {
+          allItems[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
     }
   });
 });
