@@ -861,23 +861,25 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const checklist = document.querySelector("ul.checklist");
-  const allElements = [];
+  const sequence = [];
 
-  // Zozbieraj všetky položky v poradí: .item, .linked-subitem, .grouped-item > .item, .grouped-item > .subitem
+  // Prejdeme všetky <li> v checklist
   checklist.querySelectorAll(":scope > li").forEach(li => {
-    if (li.classList.contains("item")) {
-      allElements.push(li);
-    } else if (li.classList.contains("has-linked")) {
-      allElements.push(li);
+    if (li.classList.contains("item") && li.classList.contains("has-linked")) {
+      sequence.push(li);
       const next = li.nextElementSibling;
       if (next && next.classList.contains("linked-subitem")) {
-        allElements.push(next);
+        sequence.push(next);
       }
+    } else if (li.classList.contains("item")) {
+      sequence.push(li);
+    } else if (li.classList.contains("linked-subitem")) {
+      sequence.push(li);
     } else if (li.classList.contains("grouped-item")) {
       const main = li.querySelector(".item");
       const subs = li.querySelectorAll(".subitem");
-      if (main) allElements.push(main);
-      subs.forEach(sub => allElements.push(sub));
+      if (main) sequence.push(main);
+      subs.forEach(sub => sequence.push(sub));
     }
   });
 
@@ -889,9 +891,9 @@ document.addEventListener("DOMContentLoaded", () => {
       !event.target.closest("button") &&
       !event.target.closest(".menu-item")
     ) {
-      if (selectedIndex < allElements.length - 1) {
+      if (selectedIndex < sequence.length - 1) {
         selectedIndex++;
-        const current = allElements[selectedIndex];
+        const current = sequence[selectedIndex];
         current.classList.add("selected");
         current.scrollIntoView({ behavior: "smooth", block: "center" });
       }
@@ -905,11 +907,11 @@ document.addEventListener("DOMContentLoaded", () => {
       !event.target.closest(".menu-item")
     ) {
       if (selectedIndex >= 0) {
-        const current = allElements[selectedIndex];
+        const current = sequence[selectedIndex];
         current.classList.remove("selected");
         selectedIndex--;
         if (selectedIndex >= 0) {
-          allElements[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+          sequence[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }
