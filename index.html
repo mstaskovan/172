@@ -375,7 +375,7 @@ th {
   <li class="spacer"></li>
   
   <li class="item has-linked grouped-block">
-    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 1</span>
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 2</span>
     <span class="status">HOLD TEST</span>
   </li>
   <li class="linked-subitem grouped-block">
@@ -773,7 +773,6 @@ th {
     </ul>
   </div>
 </div>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Scroll to top
@@ -857,12 +856,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let selectedIndex = -1;
 
-  // Ľavý klik = označiť ďalšiu položku/skupinu
+  // Ľavý klik = označiť ďalšiu položku/skupinu (ak menu nie je otvorené)
   document.body.addEventListener("click", (event) => {
+    const sectionMenu = document.getElementById("sectionMenu");
+    const isMenuOpen = sectionMenu && sectionMenu.classList.contains("visible");
+
     if (
       event.button === 0 &&
       !event.target.closest("button") &&
-      !event.target.closest(".menu-item")
+      !event.target.closest(".menu-item") &&
+      !isMenuOpen
     ) {
       if (selectedIndex < sequence.length - 1) {
         selectedIndex++;
