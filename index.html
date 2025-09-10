@@ -887,14 +887,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("click", function (event) {
   const menu = document.getElementById("sectionMenu");
-  const toggleBtn = document.getElementById("menuToggle");
 
-  // Ak je menu otvorené a klikneš mimo menu aj mimo tlačidla
-  if (
-    menu.classList.contains("visible") &&
-    !menu.contains(event.target) &&
-    !toggleBtn.contains(event.target)
-  ) {
+  // Ak je menu otvorené a klikneš mimo neho
+  if (menu.classList.contains("visible") && !menu.contains(event.target)) {
     menu.classList.remove("visible");
     menu.classList.add("hidden");
   }
