@@ -5,37 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cessna 172 Checklist</title>
 <style>
-  /* ✅ Základné nastavenie */
-  body {
+    body {
     background-color: #000;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
-  }
-
-  /* ✅ Nadpisy sekcií */
+    }
   .group-title {
     color: #ff4444;
     font-size: 1.4em;
     margin-top: 40px;
     margin-bottom: 15px;
-    /* border-bottom: 1px solid #444; */
     padding-bottom: 5px;
   }
-
-  /* ✅ Checklist */
+  .subsection-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ccc;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
   .checklist {
     list-style: none;
     padding-left: 0;
     margin-bottom: 30px;
   }
-
   .item {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    /* margin-left: 20px; */
     cursor: pointer;
     border-bottom: 1px dotted gray;
     padding: 6px 0;
@@ -67,15 +68,12 @@
     white-space: nowrap;
     font-style: italic;
   }
-
   .selected .label,
   .selected .status {
     color: gray;
   }
-
-  /* ✅ Menu sekcií */
  #sectionMenu {
-  position: fixed; /* ← toto je kľúčové */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -85,7 +83,7 @@
   z-index: 998;
   overflow-y: auto;
   padding: 40px 20px;
-  display: none; /* skryté na začiatku */
+  display: none;
 }
 
 #sectionMenu.visible {
@@ -111,22 +109,17 @@
   #sectionMenu li.active {
     background: #666;
   }
-
-  /* ✅ Poznámky pod tabuľkami alebo zoznamom */
   p {
     margin-top: 10px;
     font-style: italic;
     color: #aaa;
   }
-
-  /* ✅ Tabuľky – kompletne orámované */
   table {
     width: 100%;
     border-collapse: collapse;
     color: white;
     margin-bottom: 30px;
   }
-
   table, th, td {
     border: 1px solid gray;
   }
@@ -135,7 +128,6 @@
     padding: 8px;
     text-align: center;
   }
-
   th {
     background-color: #222;
     font-weight: bold;
@@ -150,46 +142,44 @@
     color: white;
     background-color: #666;
     text-transform: uppercase;
-    white-space: nowrap;        /* zabráni rozťahovaniu */
-    width: fit-content;         /* obopne text */
-    max-width: max-content;     /* zabezpečí kompaktnosť */
+    white-space: nowrap;
+    width: fit-content;
+    max-width: max-content;
   }
-  /* Farebné varianty podľa typu */
   .tag.g1000 {
-    background-color: #007ACC; /* modrá */
+    background-color: #007ACC;
   }
   .tag.classic {
-    background-color: #AA0000; /* červená */
+    background-color: #AA0000;
   }
   .tag.wbsim {
-    background-color: #228B22; /* zelená */
+    background-color: #228B22;
   }
   #scrollTopBtn,
-#menuToggle {
-  position: fixed;
-  bottom: 20px; /* alebo 80px pre ↑ */
-  right: 20px;
-  z-index: 999;
-  width: 48px;
-  height: 48px;
-  font-size: 24px;
-  background: #444;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-  /* Umiestnenie */
+  #menuToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
   #scrollTopBtn {
-    bottom: 80px; /* vyššie */
+    bottom: 80px;
   }
   #menuToggle {
-    bottom: 20px; /* nižšie */
+    bottom: 20px;
   } */
 </style>
 </head>
@@ -302,6 +292,9 @@
 <ul class="checklist">
   <li class="item"><span class="label"><span class="tag wbsim">WB SIM</span>ADF Menu → Options/Chocks/Covers</span><span class="status">AS DES</span></li>
   <li class="item"><span class="label"><span class="tag wbsim">WB SIM</span>ADF Menu → Pushback</span><span class="status">AS DES</span></li>
+  <div class="subsection-title"></div>
+  <li class="item"><span class="label"><span class="tag wbsim">Master (BAT+ALT)</span><span class="status">ON</span></li>
+  <li class="item"><span class="label"><span class="tag wbsim">3rd Circuit Breaker from the Left <span class="tag classic">INOP</span></span><span class="status">PULL</span></li>
   <li class="item"><span class="label">MSFS EFB – Flight Planning</span><span class="status">AS DES</span></li>
   <li class="item"><span class="label">Pushback & Pre-Positioning</span><span class="status">AS DES</span></li>
   <li class="item"><span class="label">Parking Brake</span><span class="status">SET</span></li>
