@@ -860,31 +860,40 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const checklist = document.querySelector("ul.checklist");
   const sequence = [];
 
-  // Prejdeme všetky <li> v checklist
-  checklist.querySelectorAll(":scope > li").forEach(li => {
-    if (li.classList.contains("item") && li.classList.contains("has-linked")) {
-      sequence.push(li);
-      const next = li.nextElementSibling;
-      if (next && next.classList.contains("linked-subitem")) {
-        sequence.push(next);
+  // Prejdeme všetky checklisty na stránke
+  document.querySelectorAll("ul.checklist").forEach(checklist => {
+    checklist.querySelectorAll(":scope > li").forEach(li => {
+      // 1. Samostatná položka s viazaným subitem
+      if (li.classList.contains("item") && li.classList.contains("has-linked")) {
+        sequence.push(li);
+        const next = li.nextElementSibling;
+        if (next && next.classList.contains("linked-subitem")) {
+          sequence.push(next);
+        }
       }
-    } else if (li.classList.contains("item")) {
-      sequence.push(li);
-    } else if (li.classList.contains("linked-subitem")) {
-      sequence.push(li);
-    } else if (li.classList.contains("grouped-item")) {
-      const main = li.querySelector(".item");
-      const subs = li.querySelectorAll(".subitem");
-      if (main) sequence.push(main);
-      subs.forEach(sub => sequence.push(sub));
-    }
+      // 2. Samostatná položka bez subitem
+      else if (li.classList.contains("item")) {
+        sequence.push(li);
+      }
+      // 3. Samostatný subitem (ak je mimo .has-linked)
+      else if (li.classList.contains("linked-subitem")) {
+        sequence.push(li);
+      }
+      // 4. Zoskupená položka (grouped-item)
+      else if (li.classList.contains("grouped-item")) {
+        const main = li.querySelector(".item");
+        const subs = li.querySelectorAll(".subitem");
+        if (main) sequence.push(main);
+        subs.forEach(sub => sequence.push(sub));
+      }
+    });
   });
 
   let selectedIndex = -1;
 
+  // Ľavý klik = označiť ďalšiu položku
   document.body.addEventListener("click", (event) => {
     if (
       event.button === 0 &&
@@ -900,6 +909,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Pravý klik = odznačiť aktuálnu položku
   document.body.addEventListener("contextmenu", (event) => {
     event.preventDefault();
     if (
