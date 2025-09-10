@@ -316,16 +316,17 @@ th {
   <li class="linked-subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
   <li class="item"><span class="label">Volts (in Cockpit)</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 1</span><span class="status">OFF</span></li>
-  <li class="item has-linked"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
+  <li class="item has-linked"><span class="label">Avionics Master 2</span><span class="status">ON</span></li>
   <li class="linked-subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
   <li class="item"><span class="label">Avionics Master 2</span><span class="status">OFF</span></li>
   <li class="item"><span class="label"><span class="tag classic">CLASSIC</span>Annunciator</span><span class="status">CHECK & CONSIDER</span></li>
   <li class="item"><span class="label"><span class="tag classic">CLASSIC</span>Annunciator Switch</span><span class="status">TEST, CHECK, RELEASE</span></li>
-  <li class="item"><span class="label"><span class="tag classic">CLASSIC</span>Annunciator Brightness</span><span class="status">BRT or DIM – AS REC</span></li>
+  <li class="item"><span class="label"><span class="tag classic">CLASSIC</span>Annunciator Switch</span><span class="status">BRT or DIM – AS REC</span></li>
   <li class="item"><span class="label">Lights</span><span class="status">CHECK (if required)</span></li>
   <li class="item"><span class="label">Flaps</span><span class="status">DOWN</span></li>
   <li class="item"><span class="label">Pitot Heat</span><span class="status">ON (30 seconds), then OFF</span></li>
   <li class="item"><span class="label">Bat & Alt Master</span><span class="status">OFF</span></li>
+  <li class="spacer"></li>
   <li class="item"><span class="label">Elevator Trim</span><span class="status">SET FOR T.O</span></li>
   <li class="item"><span class="label">Fuel Shutoff Valve</span><span class="status">FULL IN</span></li>
   <li class="item"><span class="label">Fuel Selector</span><span class="status">BOTH</span></li>
@@ -336,13 +337,34 @@ th {
 </ul>
 <h3 class="group-title">Engine Start</h3>
 <ul class="checklist">
-  <li class="item"><span class="label">Master Switch</span><span class="status">ON</span></li>
-  <li class="item"><span class="label">Beacon Light</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">Doors</span><span class="status">CLOSED</span></li>
+  <li class="item"><span class="label">Parking Brake</span><span class="status">SET</span></li>
+  <li class="item"><span class="label">Circuit Breakers</span><span class="status">IN</span></li>
+  <li class="item"><span class="label">All Electrical Switches</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">Avionics Master</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Ignition</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Fuel Selector Valve</span><span class="status">BOTH</span></li>
   <li class="item"><span class="label">Fuel Shutoff Valve</span><span class="status">FULL IN</span></li>
-  <li class="item"><span class="label">Fuel Selector</span><span class="status">BOTH</span></li>
-  <li class="item"><span class="label">Mixture</span><span class="status">RICH</span></li>
-</ul>
 
+  <li class="divider"></li>
+
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">HOLD TEST</span></li>
+  <li class="linked-subitem">Hold for 20 seconds and verify green TEST light does not go off</li>
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">ARM</span></li>
+  <li class="linked-subitem">Verify G1000 PFD comes on</li>
+  <li class="linked-subitem">Verify yellow “STBY BATT” annunciation</li>
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span> PFD EIS</span><span class="status">CHECK</span></li>
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span> PFD VOLTS</span><span class="status">CHECK</span></li>
+
+  <li class="divider"></li>
+
+  <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">Nav Light</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">Beacon</span><span class="status">ON</span></li>
+  <li class="item"><span class="label">Throttle</span><span class="status">OPEN ¼ INCH</span></li>
+  <li class="item"><span class="label">Mixture</span><span class="status">CUT-OFF</span></li>
+</ul>
 <h3 class="group-title">Priming (if rewuired - cold engine)</h3>
 <ul class="checklist">
   <li class="item"><span class="label">Throttle</span><span class="status">OPEN 1/4 INCH</span></li>
