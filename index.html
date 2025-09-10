@@ -370,7 +370,7 @@ th {
   <li class="spacer"></li>
   
   <li class="item has-linked grouped-block">
-    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 2</span>
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 3</span>
     <span class="status">HOLD TEST</span>
   </li>
   <li class="linked-subitem grouped-block">
@@ -833,21 +833,20 @@ document.addEventListener("DOMContentLoaded", () => {
         i = j - 1; // preskočíme už pridané subitemy
       }
 
-      // Nezávislé označenie: samostatné item, subitem, linked-subitem
+      // Nezávislé označenie: samostatné item, subitem
       else if (
         li.classList.contains("item") ||
-        li.classList.contains("subitem") ||
-        li.classList.contains("linked-subitem")
+        li.classList.contains("subitem")
       ) {
         sequence.push(li);
       }
 
-      // Skupinové položky (ak používaš .grouped-item)
-      else if (li.classList.contains("grouped-item")) {
-        const main = li.querySelector(".item");
-        const subs = li.querySelectorAll(".subitem");
-        if (main) sequence.push(main);
-        subs.forEach(sub => sequence.push(sub));
+      // Samostatné linked-subitemy (ak nie sú za has-linked)
+      else if (
+        li.classList.contains("linked-subitem") &&
+        !(items[i - 1] && items[i - 1].classList.contains("has-linked"))
+      ) {
+        sequence.push(li);
       }
     }
   });
