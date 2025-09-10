@@ -75,7 +75,7 @@
 
   /* ✅ Menu sekcií */
   #sectionMenu {
-    position: grid;
+    display: grid;
     top: 0;
     left: 0;
     right: 0;
@@ -162,20 +162,21 @@
   }
   #scrollTopBtn,
   #menuToggle {
-    position: fixed;
-    right: 20px;
-    z-index: 999;
+    width: 48px;
+    height: 48px;
     font-size: 24px;
     background: #444;
     color: white;
     border: none;
     border-radius: 50%;
-    padding: 10px 14px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     cursor: pointer;
     transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* odstráni rozdiely spôsobené textom */
   }
-  
   /* Umiestnenie */
   #scrollTopBtn {
     bottom: 80px; /* vyššie */
@@ -719,7 +720,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <p style="margin-top:10px; color: gray; font-style: italic;">
   Vizuálny okruh sa zvyčajne začína približne 10 NM od letiska. Pred vstupom do okruhu je dôležité nastaviť tlak (QNH), zapnúť pristávacie svetlá a upraviť zmes paliva podľa výšky a výkonu. Vizuálny prístup vyžaduje neustále sledovanie polohy voči dráhe, najmä pri otočke na základný a finálny úsek.
 </p>
-
 </div>
   <button id="scrollTopBtn" title="Späť na začiatok">↑</button>
   <button id="menuToggle">☰</button>
@@ -749,7 +749,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-
 </body>  
 </html>
