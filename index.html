@@ -370,7 +370,7 @@ th {
   <li class="spacer"></li>
   
   <li class="item has-linked grouped-block">
-    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 3</span>
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 4</span>
     <span class="status">HOLD TEST</span>
   </li>
   <li class="linked-subitem grouped-block">
@@ -817,43 +817,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Prejdeme všetky checklisty
   document.querySelectorAll("ul.checklist").forEach(checklist => {
-    const items = checklist.querySelectorAll(":scope > li");
+    const items = Array.from(checklist.children);
 
     for (let i = 0; i < items.length; i++) {
       const li = items[i];
 
-      // Viazané označenie: item.has-linked + všetky linked-subitemy za sebou
+      // Ak je to viazaná položka
       if (li.classList.contains("item") && li.classList.contains("has-linked")) {
-        sequence.push(li);
+        const group = [li];
         let j = i + 1;
+
+        // Pridaj všetky nasledujúce linked-subitemy
         while (j < items.length && items[j].classList.contains("linked-subitem")) {
-          sequence.push(items[j]);
+          group.push(items[j]);
           j++;
         }
-        i = j - 1; // preskočíme už pridané subitemy
+
+        sequence.push(group); // pridaj celú skupinu ako jeden krok
+        i = j - 1; // preskoč subitemy
       }
 
-      // Nezávislé označenie: samostatné item, subitem
+      // Ak je to samostatná položka
       else if (
         li.classList.contains("item") ||
         li.classList.contains("subitem")
       ) {
-        sequence.push(li);
-      }
-
-      // Samostatné linked-subitemy (ak nie sú za has-linked)
-      else if (
-        li.classList.contains("linked-subitem") &&
-        !(items[i - 1] && items[i - 1].classList.contains("has-linked"))
-      ) {
-        sequence.push(li);
+        sequence.push([li]); // samostatná položka ako skupina s jedným prvkom
       }
     }
   });
 
   let selectedIndex = -1;
 
-  // Ľavý klik = označiť ďalšiu položku
+  // Ľavý klik = označiť ďalšiu položku/skupinu
   document.body.addEventListener("click", (event) => {
     if (
       event.button === 0 &&
@@ -862,14 +858,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       if (selectedIndex < sequence.length - 1) {
         selectedIndex++;
-        const current = sequence[selectedIndex];
-        current.classList.add("selected");
-        current.scrollIntoView({ behavior: "smooth", block: "center" });
+        const group = sequence[selectedIndex];
+        group.forEach(el => el.classList.add("selected"));
+        group[0].scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
   });
 
-  // Pravý klik = odznačiť aktuálnu položku
+  // Pravý klik = odznačiť aktuálnu položku/skupinu
   document.body.addEventListener("contextmenu", (event) => {
     event.preventDefault();
     if (
@@ -877,11 +873,11 @@ document.addEventListener("DOMContentLoaded", () => {
       !event.target.closest(".menu-item")
     ) {
       if (selectedIndex >= 0) {
-        const current = sequence[selectedIndex];
-        current.classList.remove("selected");
+        const group = sequence[selectedIndex];
+        group.forEach(el => el.classList.remove("selected"));
         selectedIndex--;
         if (selectedIndex >= 0) {
-          sequence[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+          sequence[selectedIndex][0].scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }
