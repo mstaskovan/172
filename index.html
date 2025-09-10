@@ -748,7 +748,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Scroll to top
-  document.getElementById("scrollTopBtn").addEventListener("click", () => {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
@@ -760,16 +761,32 @@ document.addEventListener("DOMContentLoaded", () => {
     sectionMenu.classList.toggle("visible");
   });
 
-  // Scroll na sekciu po kliknutí na menu položku
-  document.querySelectorAll(".menu-item").forEach(item => {
+  // Scroll na sekciu + označenie aktívnej položky
+  const menuItems = document.querySelectorAll(".menu-item");
+  menuItems.forEach(item => {
     item.addEventListener("click", () => {
       const targetId = item.getAttribute("data-target");
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
         sectionMenu.classList.remove("visible");
+
+        // Označ aktívnu položku
+        menuItems.forEach(el => el.classList.remove("active"));
+        item.classList.add("active");
       }
     });
+  });
+
+  // Zatvorenie menu kliknutím mimo
+  document.addEventListener("click", (event) => {
+    const isMenuOpen = sectionMenu.classList.contains("visible");
+    const clickedInsideMenu = event.target.closest("#sectionMenu");
+    const clickedMenuToggle = event.target.closest("#menuToggle");
+
+    if (isMenuOpen && !clickedInsideMenu && !clickedMenuToggle) {
+      sectionMenu.classList.remove("visible");
+    }
   });
 });
 </script>
