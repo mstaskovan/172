@@ -73,22 +73,6 @@
     color: gray;
   }
 
-  /* ✅ Tlačidlo menu */
-  #menuToggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-    font-size: 24px;
-    background: #444;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 10px 14px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    cursor: pointer;
-  }
-
   /* ✅ Menu sekcií */
   #sectionMenu {
     position: grid;
@@ -176,12 +160,12 @@
   .tag.wbsim {
     background-color: #228B22; /* zelená */
   }
-  #scrollTopBtn {
+  #scrollTopBtn,
+  #menuToggle {
     position: fixed;
-    bottom: 80px; /* vyššie než menuToggle */
     right: 20px;
     z-index: 999;
-    font-size: 20px;
+    font-size: 24px;
     background: #444;
     color: white;
     border: none;
@@ -191,15 +175,17 @@
     cursor: pointer;
     transition: background 0.3s;
   }
-  #scrollTopBtn:hover {
-    background: #666;
+  
+  /* Umiestnenie */
+  #scrollTopBtn {
+    bottom: 80px; /* vyššie */
+  }
+
+  #menuToggle {
+    bottom: 20px; /* nižšie */
   }
 </style>
-<script>
-document.getElementById("scrollTopBtn").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Zahrni všetky označiteľné položky: item, subitem, has-linked
@@ -747,26 +733,23 @@ document.addEventListener("DOMContentLoaded", () => {
   </ul>
 </div>
 <script>
-  const toggle = document.getElementById("menuToggle");
-  const menu = document.getElementById("sectionMenu");
-  const menuItems = menu.querySelectorAll(".menu-item");
-
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+document.addEventListener("DOMContentLoaded", () => {
+  // Scroll to top
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  menuItems.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.stopPropagation(); // zabráni preletu kliknutia do iného skriptu
-      const targetId = el.dataset.target;
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        menu.classList.add("hidden");
-      }
-    });
+  // Menu toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const sectionMenu = document.getElementById("sectionMenu");
+
+  menuToggle.addEventListener("click", () => {
+    sectionMenu.classList.toggle("hidden");
   });
+});
 </script>
+
 
 </body>  
 </html>
