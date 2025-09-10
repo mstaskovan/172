@@ -12,11 +12,14 @@ body {
   margin: 0;
   padding: 20px;
 }
+
 p {
   margin-top: 10px;
   font-style: italic;
   color: #aaa;
 }
+
+/* Nadpisy sekcií */
 .group-title {
   color: #ff4444;
   font-size: 1.4em;
@@ -25,6 +28,7 @@ p {
   padding-bottom: 5px;
   text-transform: uppercase;
 }
+
 .subsection-title {
   font-size: 1.1em;
   font-weight: bold;
@@ -35,37 +39,37 @@ p {
   letter-spacing: 0.5px;
   text-align: center;
 }
+
+/* Checklist */
 .checklist {
   list-style: none;
   padding-left: 0;
   margin-bottom: 30px;
 }
+
+/* Linka len pre samostatné položky */
+.checklist > .item {
+  border-bottom: 1px dotted gray;
+}
+
+/* Samostatná položka */
 .item {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   cursor: pointer;
-  border-bottom: 1px dotted gray;
   padding: 6px 0;
   gap: 10px;
   transition: background 0.3s, border-left 0.3s;
 }
-.item .label {
-  text-align: left;
-  word-break: break-word;
-  font-weight: bold;
-}
-.item .status {
-  text-align: right;
-  color: #FFD700;
-  white-space: nowrap;
-  font-style: italic;
-}
+
+/* Zoskupená položka s podsekciami */
 .grouped-item {
   padding-bottom: 8px;
   margin-bottom: 6px;
   border-bottom: 1px dotted gray;
 }
+
 .grouped-item .item {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -73,16 +77,35 @@ p {
   padding: 6px 0;
   cursor: pointer;
 }
+
 .grouped-item .subitem {
   padding-left: 20px;
   font-style: italic;
   font-size: 0.95em;
   opacity: 0.85;
 }
+
+/* Obsah položky */
+.item .label {
+  text-align: left;
+  word-break: break-word;
+  font-weight: bold;
+}
+
+.item .status {
+  text-align: right;
+  color: #FFD700;
+  white-space: nowrap;
+  font-style: italic;
+}
+
+/* Výber položky */
 .selected .label,
 .selected .status {
   color: gray;
 }
+
+/* Podpoložky */
 .subitem,
 .linked-subitem {
   padding-left: 20px;
@@ -90,19 +113,25 @@ p {
   font-size: 0.95em;
   opacity: 0.85;
 }
+
 .subitem {
   cursor: pointer;
 }
+
+/* Oddelovače */
 .spacer {
   height: 20px;
   border: none;
   pointer-events: none;
 }
+
 .divider {
   border-top: 1px solid #fff;
   margin: 10px 0;
   pointer-events: none;
 }
+
+/* Štítky */
 .tag {
   display: inline-block;
   padding: 2px 6px;
@@ -117,32 +146,42 @@ p {
   width: fit-content;
   max-width: max-content;
 }
+
 .tag.g1000 {
   background-color: #007ACC;
 }
+
 .tag.classic {
   background-color: #AA0000;
 }
+
 .tag.wbsim {
   background-color: #228B22;
 }
+
+/* Tabuľky */
 table {
   width: 100%;
   border-collapse: collapse;
   color: white;
   margin-bottom: 30px;
 }
+
 table, th, td {
   border: 1px solid gray;
 }
+
 th, td {
   padding: 8px;
   text-align: center;
 }
+
 th {
   background-color: #222;
   font-weight: bold;
 }
+
+/* Sekčné menu */
 #sectionMenu {
   position: fixed;
   top: 0;
@@ -156,26 +195,33 @@ th {
   padding: 40px 20px;
   display: none;
 }
+
 #sectionMenu.visible {
   display: block;
 }
+
 #sectionMenu.hidden {
   display: none;
 }
+
 #sectionMenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 #sectionMenu li {
   padding: 15px;
   font-size: 20px;
   border-bottom: 1px solid gray;
   transition: background 0.2s;
 }
+
 #sectionMenu li.active {
   background: #666;
 }
+
+/* Tlačidlá */
 #scrollTopBtn,
 #menuToggle {
   position: fixed;
@@ -196,13 +242,16 @@ th {
   justify-content: center;
   padding: 0;
 }
+
 #scrollTopBtn {
   bottom: 80px;
 }
+
 #menuToggle {
   bottom: 20px;
 }
 </style>
+
 </head>
 
 <body>
