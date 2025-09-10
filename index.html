@@ -369,13 +369,33 @@ th {
 
   <li class="divider"></li>
 
-  <li class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">HOLD TEST</span></li>
-  <li class="linked-subitem">Hold for 20 seconds and verify green TEST light does not go off</li>
-  <li class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">ARM</span></li>
-  <li class="linked-subitem">Verify G1000 PFD comes on</li>
-  <li class="linked-subitem">Verify yellow “STBY BATT” annunciation</li>
-  <li class="item"><span class="label"><span class="tag g1000">G1000</span> PFD EIS</span><span class="status">CHECK</span></li>
-  <li class="item"><span class="label"><span class="tag g1000">G1000</span> PFD VOLTS</span><span class="status">CHECK</span></li>
+  <li class="item has-linked grouped-block">
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span>
+    <span class="status">HOLD TEST</span>
+  </li>
+  <li class="linked-subitem grouped-block">
+    Hold for 20 seconds and verify green TEST light does not go off
+  </li>
+  <li class="group-end"></li>
+
+  <!-- Skupina: STBY Battery Switch – ARM -->
+  <li class="item has-linked grouped-block">
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span>
+    <span class="status">ARM</span>
+  </li>
+  <li class="linked-subitem grouped-block">Verify G1000 PFD comes on</li>
+  <li class="linked-subitem grouped-block">Verify yellow “STBY BATT” annunciation</li>
+  <li class="group-end"></li>
+
+  <!-- Samostatné položky -->
+  <li class="item">
+    <span class="label"><span class="tag g1000">G1000</span> PFD EIS</span>
+    <span class="status">CHECK</span>
+  </li>
+  <li class="item">
+    <span class="label"><span class="tag g1000">G1000</span> PFD VOLTS</span>
+    <span class="status">CHECK</span>
+  </li>
 
   <li class="divider"></li>
 
@@ -468,7 +488,7 @@ th {
 <h3 id="taxi" class="group-title">Taxi</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Taxi Clearance)</span><span class="status">AS REQ</span></li>
-  <li class="item grouped-block"><span class="label">Taxi Lights</span><span class="status"></span></li>
+  <li class="item grouped-block"><span class="label">Taxi Lights</span><span class="status">ON</span></li>
   <li class="subitem grouped-block"><span class="label">→ Release Parking Brake</span><span class="status"></span></li>
   <li class="subitem grouped-block"><span class="label">→ Check Braking and Steering</span><span class="status"></span></li>
   <li class="subitem grouped-block"><span class="label">→ Check Engine & Flight Instruments</span><span class="status"></span></li>
