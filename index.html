@@ -12,14 +12,11 @@ body {
   margin: 0;
   padding: 20px;
 }
-
 p {
   margin-top: 10px;
   font-style: italic;
   color: #aaa;
 }
-
-/* Nadpisy sekcií */
 .group-title {
   color: #ff4444;
   font-size: 1.4em;
@@ -28,7 +25,6 @@ p {
   padding-bottom: 5px;
   text-transform: uppercase;
 }
-
 .subsection-title {
   font-size: 1.1em;
   font-weight: bold;
@@ -39,73 +35,36 @@ p {
   letter-spacing: 0.5px;
   text-align: center;
 }
-
-/* Checklist */
 .checklist {
   list-style: none;
   padding-left: 0;
   margin-bottom: 30px;
 }
-
-/* Linka len pre samostatné položky */
-.checklist > .item {
-  border-bottom: 1px dotted gray;
-}
-
-/* Samostatná položka */
 .item {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   cursor: pointer;
+  border-bottom: 1px dotted gray;
   padding: 6px 0;
   gap: 10px;
   transition: background 0.3s, border-left 0.3s;
 }
-
-/* Zoskupená položka s podsekciami */
-.grouped-item {
-  padding-bottom: 8px;
-  margin-bottom: 6px;
-  border-bottom: 1px dotted gray;
-}
-
-.grouped-item .item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 10px;
-  padding: 6px 0;
-  cursor: pointer;
-}
-
-.grouped-item .subitem {
-  padding-left: 20px;
-  font-style: italic;
-  font-size: 0.95em;
-  opacity: 0.85;
-}
-
-/* Obsah položky */
 .item .label {
   text-align: left;
   word-break: break-word;
   font-weight: bold;
 }
-
 .item .status {
   text-align: right;
   color: #FFD700;
   white-space: nowrap;
   font-style: italic;
 }
-
-/* Výber položky */
 .selected .label,
 .selected .status {
   color: gray;
 }
-
-/* Podpoložky */
 .subitem,
 .linked-subitem {
   padding-left: 20px;
@@ -113,25 +72,19 @@ p {
   font-size: 0.95em;
   opacity: 0.85;
 }
-
 .subitem {
   cursor: pointer;
 }
-
-/* Oddelovače */
 .spacer {
   height: 20px;
   border: none;
   pointer-events: none;
 }
-
 .divider {
   border-top: 1px solid #fff;
   margin: 10px 0;
   pointer-events: none;
 }
-
-/* Štítky */
 .tag {
   display: inline-block;
   padding: 2px 6px;
@@ -146,42 +99,32 @@ p {
   width: fit-content;
   max-width: max-content;
 }
-
 .tag.g1000 {
   background-color: #007ACC;
 }
-
 .tag.classic {
   background-color: #AA0000;
 }
-
 .tag.wbsim {
   background-color: #228B22;
 }
-
-/* Tabuľky */
 table {
   width: 100%;
   border-collapse: collapse;
   color: white;
   margin-bottom: 30px;
 }
-
 table, th, td {
   border: 1px solid gray;
 }
-
 th, td {
   padding: 8px;
   text-align: center;
 }
-
 th {
   background-color: #222;
   font-weight: bold;
 }
-
-/* Sekčné menu */
 #sectionMenu {
   position: fixed;
   top: 0;
@@ -195,33 +138,26 @@ th {
   padding: 40px 20px;
   display: none;
 }
-
 #sectionMenu.visible {
   display: block;
 }
-
 #sectionMenu.hidden {
   display: none;
 }
-
 #sectionMenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 #sectionMenu li {
   padding: 15px;
   font-size: 20px;
   border-bottom: 1px solid gray;
   transition: background 0.2s;
 }
-
 #sectionMenu li.active {
   background: #666;
 }
-
-/* Tlačidlá */
 #scrollTopBtn,
 #menuToggle {
   position: fixed;
@@ -242,16 +178,13 @@ th {
   justify-content: center;
   padding: 0;
 }
-
 #scrollTopBtn {
   bottom: 80px;
 }
-
 #menuToggle {
   bottom: 20px;
 }
 </style>
-
 </head>
 
 <body>
@@ -408,24 +341,24 @@ th {
   <li class="item"><span class="label">Parking Brake</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Circuit Breakers</span><span class="status">IN</span></li>
   <li class="item"><span class="label">All Electrical Switches</span><span class="status">OFF</span></li>
-  <li class="item"><span class="label">Bat & Alt Master</span><span class="status">OFF</span></li>
+  <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
   <li class="item"><span class="label">Avionics Master</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">Ignition</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">Fuel Selector Valve</span><span class="status">BOTH</span></li>
   <li class="item"><span class="label">Fuel Shutoff Valve</span><span class="status">FULL IN</span></li>
-  <li class="spacer"></li>
-   <li class="grouped-item">
-    <div class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">HOLD TEST</span></div>
-    <div class="subitem">Hold for 2 seconds and verify green TEST light is ON</div>
-  </li>
-  <li class="grouped-item">
-    <div class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">ARM</span></div>
-    <div class="subitem">Verify G1000 PFD / MFD come on</div>
-    <div class="subitem">Verify white “STBY START” annunciation</div>
-  </li>
+
+  <li class="divider"></li>
+
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">HOLD TEST</span></li>
+  <li class="linked-subitem">Hold for 20 seconds and verify green TEST light does not go off</li>
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch</span><span class="status">ARM</span></li>
+  <li class="linked-subitem">Verify G1000 PFD comes on</li>
+  <li class="linked-subitem">Verify yellow “STBY BATT” annunciation</li>
   <li class="item"><span class="label"><span class="tag g1000">G1000</span> PFD EIS</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label"><span class="tag g1000">G1000</span> PFD VOLTS</span><span class="status">CHECK</span></li>
-  <li class="spacer"></li>
+
+  <li class="divider"></li>
+
   <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
   <li class="item"><span class="label">Nav Light</span><span class="status">ON</span></li>
   <li class="item"><span class="label">Beacon</span><span class="status">ON</span></li>
@@ -858,58 +791,45 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script>
+  <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const sequence = [];
+  // Zahrni všetky označiteľné položky: item, subitem, has-linked
+  const allItems = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
+  const linkedMap = new Map();
 
-  // Prejdeme všetky checklisty na stránke
-  document.querySelectorAll("ul.checklist").forEach(checklist => {
-    checklist.querySelectorAll(":scope > li").forEach(li => {
-      // 1. Samostatná položka s viazaným subitem
-      if (li.classList.contains("item") && li.classList.contains("has-linked")) {
-        sequence.push(li);
-        const next = li.nextElementSibling;
-        if (next && next.classList.contains("linked-subitem")) {
-          sequence.push(next);
-        }
+  // Mapovanie viazaných subitemov k ich hlavným položkám
+  allItems.forEach((item, index) => {
+    if (item.classList.contains("has-linked")) {
+      const next = item.nextElementSibling;
+      if (next && next.classList.contains("linked-subitem")) {
+        linkedMap.set(item, next);
       }
-      // 2. Samostatná položka bez subitem
-      else if (li.classList.contains("item")) {
-        sequence.push(li);
-      }
-      // 3. Samostatný subitem (ak je mimo .has-linked)
-      else if (li.classList.contains("linked-subitem")) {
-        sequence.push(li);
-      }
-      // 4. Zoskupená položka (grouped-item)
-      else if (li.classList.contains("grouped-item")) {
-        const main = li.querySelector(".item");
-        const subs = li.querySelectorAll(".subitem");
-        if (main) sequence.push(main);
-        subs.forEach(sub => sequence.push(sub));
-      }
-    });
+    }
   });
 
   let selectedIndex = -1;
 
-  // Ľavý klik = označiť ďalšiu položku
   document.body.addEventListener("click", (event) => {
+    // Ignoruj kliky na tlačidlá a menu položky
     if (
       event.button === 0 &&
       !event.target.closest("button") &&
       !event.target.closest(".menu-item")
     ) {
-      if (selectedIndex < sequence.length - 1) {
+      if (selectedIndex < allItems.length - 1) {
         selectedIndex++;
-        const current = sequence[selectedIndex];
-        current.classList.add("selected");
-        current.scrollIntoView({ behavior: "smooth", block: "center" });
+        const currentItem = allItems[selectedIndex];
+        currentItem.classList.add("selected");
+        currentItem.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Ak má viazaný subitem, označ ho tiež
+        if (linkedMap.has(currentItem)) {
+          linkedMap.get(currentItem).classList.add("selected");
+        }
       }
     }
   });
 
-  // Pravý klik = odznačiť aktuálnu položku
   document.body.addEventListener("contextmenu", (event) => {
     event.preventDefault();
     if (
@@ -917,11 +837,17 @@ document.addEventListener("DOMContentLoaded", () => {
       !event.target.closest(".menu-item")
     ) {
       if (selectedIndex >= 0) {
-        const current = sequence[selectedIndex];
-        current.classList.remove("selected");
+        const currentItem = allItems[selectedIndex];
+        currentItem.classList.remove("selected");
+
+        // Odznač aj viazaný subitem, ak existuje
+        if (linkedMap.has(currentItem)) {
+          linkedMap.get(currentItem).classList.remove("selected");
+        }
+
         selectedIndex--;
         if (selectedIndex >= 0) {
-          sequence[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+          allItems[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }
