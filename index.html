@@ -158,6 +158,11 @@ th {
 #sectionMenu li.active {
   background: #666;
 }
+.menu-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 #scrollTopBtn,
 #menuToggle {
   position: fixed;
@@ -370,7 +375,7 @@ th {
   <li class="spacer"></li>
   
   <li class="item has-linked grouped-block">
-    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 9</span>
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 1</span>
     <span class="status">HOLD TEST</span>
   </li>
   <li class="linked-subitem grouped-block">
@@ -758,14 +763,17 @@ th {
   <button id="scrollTopBtn" title="Späť na začiatok">↑</button>
   <button id="menuToggle">☰</button>
   <div id="sectionMenu">
-  <ul>
-  <li class="menu-item" data-target="preflight">Preflight</li>
-  <li class="menu-item" data-target="taxi">Taxi</li>
-  <li class="menu-item" data-target="cruise">Cruise</li>
-  <li class="menu-item" data-target="descent">Descent</li>
-  <!-- doplň ďalšie sekcie -->
-  </ul>
+  <div class="menu-content">
+    <ul>
+      <li class="menu-item" data-target="preflight">Preflight</li>
+      <li class="menu-item" data-target="taxi">Taxi</li>
+      <li class="menu-item" data-target="cruise">Cruise</li>
+      <li class="menu-item" data-target="descent">Descent</li>
+      <!-- doplň ďalšie sekcie -->
+    </ul>
+  </div>
 </div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Scroll to top
@@ -799,13 +807,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Zatvorenie menu kliknutím mimo
+    // Zatvorenie menu kliknutím mimo obsahu
   document.addEventListener("click", (event) => {
     const isMenuOpen = sectionMenu.classList.contains("visible");
-    const clickedInsideMenu = event.target.closest("#sectionMenu");
+    const clickedInsideContent = event.target.closest(".menu-content");
     const clickedMenuToggle = event.target.closest("#menuToggle");
 
-    if (isMenuOpen && !clickedInsideMenu && !clickedMenuToggle) {
+    if (isMenuOpen && !clickedInsideContent && !clickedMenuToggle) {
       sectionMenu.classList.remove("visible");
     }
   });
@@ -882,22 +890,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-});
-</script>
-<script>
-document.addEventListener("click", function (event) {
-  const menu = document.getElementById("sectionMenu");
-  const toggleBtn = document.getElementById("menuToggle");
-
-  // Ak je menu otvorené a klikneš mimo menu aj mimo tlačidla
-  if (
-    menu.classList.contains("visible") &&
-    !menu.contains(event.target) &&
-    !toggleBtn.contains(event.target)
-  ) {
-    menu.classList.remove("visible");
-    menu.classList.add("hidden");
-  }
 });
 </script>
 </body>  
