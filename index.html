@@ -184,6 +184,24 @@ th {
 #menuToggle {
   bottom: 20px;
 }
+  /* Linka len pre samostatné položky (nie tie v skupine) */
+.checklist > .item {
+  border-bottom: 1px dotted gray;
+}
+
+/* Odstrániť border z položiek, ktoré sú súčasťou skupiny */
+.grouped-block.item,
+.grouped-block.subitem,
+.grouped-block.linked-subitem {
+  border-bottom: none;
+}
+
+/* Linka len na konci skupiny */
+.group-end {
+  border-bottom: 1px dotted gray;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+}
 </style>
 </head>
 
@@ -313,7 +331,9 @@ th {
   <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
   <li class="item"><span class="label">Fuel Quantity</span><span class="status">CHECK</span></li>
   <li class="item has-linked"><span class="label">Avionics Master 1</span><span class="status">ON</span></li>
-  <li class="linked-subitem"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
+  <li class="item has-linked grouped-block"><span class="label">Avionics Master 1</span><span class="status">ON</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ verify Avionics Cooling is audible</span><span class="status"></span></li>
+  <li class="group-end"></li>
   <li class="item"><span class="label">Volts (in Cockpit)</span><span class="status">CHECK</span></li>
   <li class="item"><span class="label">Avionics Master 1</span><span class="status">OFF</span></li>
   <li class="item has-linked"><span class="label">Avionics Master 2</span><span class="status">ON</span></li>
