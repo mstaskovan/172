@@ -858,40 +858,49 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Zahrni všetky označiteľné položky: item, subitem, has-linked
   const allItems = Array.from(document.querySelectorAll("ul.checklist .item, ul.checklist .subitem"));
   const linkedMap = new Map();
 
-  // Mapovanie viazaných subitemov k ich hlavným položkám
+  // Mapovanie viazaných subitemov k .has-linked položkám
   allItems.forEach((item, index) => {
     if (item.classList.contains("has-linked")) {
       const next = item.nextElementSibling;
       if (next && next.classList.contains("linked-subitem")) {
-        linkedMap.set(item, next);
+        linkedMap.set(item, [next]);
       }
     }
   });
 
+  // Mapovanie subitemov k .grouped-item blokom
+  const groupedItems = Array.from(document.querySelectorAll("ul.checklist .grouped-item"));
+  groupedItems.forEach(group => {
+    const mainItem = group.querySelector(".item");
+    const subitems = Array.from(group.querySelectorAll(".subitem"));
+    if (mainItem && subitems.length > 0) {
+      linkedMap.set(mainItem, subitems);
+    }
+  });
+
   let selectedIndex = -1;
+  const selectableItems = Array.from(document.querySelectorAll("ul.checklist .item"));
 
   document.body.addEventListener("click", (event) => {
-    // Ignoruj kliky na tlačidlá a menu položky
     if (
       event.button === 0 &&
       !event.target.closest("button") &&
       !event.target.closest(".menu-item")
     ) {
-      if (selectedIndex < allItems.length - 1) {
+      if (selectedIndex < selectableItems.length - 1) {
         selectedIndex++;
-        const currentItem = allItems[selectedIndex];
+        const currentItem = selectableItems[selectedIndex];
         currentItem.classList.add("selected");
         currentItem.scrollIntoView({ behavior: "smooth", block: "center" });
 
-        // Ak má viazaný subitem, označ ho tiež
+        // Označ subitemy, ak existujú
         if (linkedMap.has(currentItem)) {
-          linkedMap.get(currentItem).classList.add("selected");
+          linkedMap.get(currentItem).forEach(sub => sub.classList.add("selected"));
         }
       }
     }
@@ -904,17 +913,17 @@ document.addEventListener("DOMContentLoaded", () => {
       !event.target.closest(".menu-item")
     ) {
       if (selectedIndex >= 0) {
-        const currentItem = allItems[selectedIndex];
+        const currentItem = selectableItems[selectedIndex];
         currentItem.classList.remove("selected");
 
-        // Odznač aj viazaný subitem, ak existuje
+        // Odznač subitemy, ak existujú
         if (linkedMap.has(currentItem)) {
-          linkedMap.get(currentItem).classList.remove("selected");
+          linkedMap.get(currentItem).forEach(sub => sub.classList.remove("selected"));
         }
 
         selectedIndex--;
         if (selectedIndex >= 0) {
-          allItems[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+          selectableItems[selectedIndex].scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }
