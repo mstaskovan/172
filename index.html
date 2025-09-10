@@ -370,7 +370,7 @@ th {
   <li class="spacer"></li>
   
   <li class="item has-linked grouped-block">
-    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 8</span>
+    <span class="label"><span class="tag g1000">G1000</span> STBY Battery Switch 9</span>
     <span class="status">HOLD TEST</span>
   </li>
   <li class="linked-subitem grouped-block">
@@ -887,9 +887,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("click", function (event) {
   const menu = document.getElementById("sectionMenu");
+  const toggleBtn = document.getElementById("menuToggle");
 
-  // Ak je menu otvorené a klikneš mimo neho
-  if (menu.classList.contains("visible") && !menu.contains(event.target)) {
+  // Ak je menu otvorené a klikneš mimo menu aj mimo tlačidla
+  if (
+    menu.classList.contains("visible") &&
+    !menu.contains(event.target) &&
+    !toggleBtn.contains(event.target)
+  ) {
     menu.classList.remove("visible");
     menu.classList.add("hidden");
   }
