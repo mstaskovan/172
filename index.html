@@ -176,8 +176,30 @@
   .tag.wbsim {
     background-color: #228B22; /* zelená */
   }
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 80px; /* vyššie než menuToggle */
+    right: 20px;
+    z-index: 999;
+    font-size: 20px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 14px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  #scrollTopBtn:hover {
+    background: #666;
+  }
 </style>
-
+<script>
+document.getElementById("scrollTopBtn").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Zahrni všetky označiteľné položky: item, subitem, has-linked
@@ -713,6 +735,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </p>
 
 </div>
+  <button id="scrollTopBtn" title="Späť na začiatok">↑</button>
   <button id="menuToggle">☰</button>
   <div id="sectionMenu" class="hidden">
   <ul>
