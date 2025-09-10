@@ -192,7 +192,6 @@
     bottom: 20px; /* nižšie */
   } */
 </style>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Zahrni všetky označiteľné položky: item, subitem, has-linked
@@ -212,7 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedIndex = -1;
 
   document.body.addEventListener("click", (event) => {
-    if (event.button === 0 && !event.target.closest("button")) {
+    // Ignoruj kliky na tlačidlá a menu položky
+    if (
+      event.button === 0 &&
+      !event.target.closest("button") &&
+      !event.target.closest(".menu-item")
+    ) {
       if (selectedIndex < allItems.length - 1) {
         selectedIndex++;
         const currentItem = allItems[selectedIndex];
@@ -229,7 +233,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.body.addEventListener("contextmenu", (event) => {
     event.preventDefault();
-    if (!event.target.closest("button")) {
+    if (
+      !event.target.closest("button") &&
+      !event.target.closest(".menu-item")
+    ) {
       if (selectedIndex >= 0) {
         const currentItem = allItems[selectedIndex];
         currentItem.classList.remove("selected");
@@ -751,6 +758,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   menuToggle.addEventListener("click", () => {
     sectionMenu.classList.toggle("visible");
+  });
+
+  // Scroll na sekciu po kliknutí na menu položku
+  document.querySelectorAll(".menu-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const targetId = item.getAttribute("data-target");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        sectionMenu.classList.remove("visible");
+      }
+    });
   });
 });
 </script>
