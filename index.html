@@ -240,11 +240,11 @@ th {
         <td style="text-align:center;">2 550 lbs / 1 157 kg</td>
       </tr>
       <tr>
-        <td>VFE – Flaps 0–10°</td>
+        <td>VFE max. flaps ext. 0–10°</td>
         <td colspan="2" style="text-align:center;">110 KIAS</td>
       </tr>
       <tr>
-        <td>VFE – Flaps >10°</td>
+        <td>VFE max. flaps ext. >10°</td>
         <td colspan="2" style="text-align:center;">85 KIAS</td>
       </tr>
       <tr>
@@ -252,12 +252,12 @@ th {
         <td colspan="2" style="text-align:center;">~14 000 ft</td>
       </tr>
       <tr>
-        <td>Load Factor – Flaps UP</td>
+        <td>Load Factor Limits – Flaps UP</td>
         <td style="text-align:center;">–1.76 / +4.4g</td>
         <td style="text-align:center;">–1.52 / +3.8g</td>
       </tr>
       <tr>
-        <td>Load Factor – Flaps DOWN</td>
+        <td>Load Factor Limits – Flaps DOWN</td>
         <td style="text-align:center;">0 / +3.0g</td>
         <td style="text-align:center;">0 / +3.0g</td>
       </tr>
@@ -379,7 +379,7 @@ th {
     <span class="status">HOLD TEST</span>
   </li>
   <li class="linked-subitem grouped-block">
-    <span class="label">Hold for 20 seconds and verify green TEST light does not go off</span>
+    <span class="label">→ hold for 20 seconds and verify green TEST light does not go off</span>
     <span class="status"></span>
   </li>
   <li class="group-end"></li>
@@ -389,15 +389,17 @@ th {
   <span class="status">ARM</span>
 </li>
 <li class="linked-subitem grouped-block">
-  <span class="label">Verify G1000 PFD comes on</span>
+  <span class="label">→ verify G1000 PFD comes on</span>
   <span class="status"></span>
 </li>
 <li class="linked-subitem grouped-block">
-  <span class="label">Verify yellow “STBY BATT” annunciation</span>
+  <span class="label">→ verify yellow “STBY BATT” annunciation</span>
   <span class="status"></span>
 </li>
 <li class="group-end"></li>
-
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span>PFD EIS</span><span class="status">CHECK</span></li>
+  <li class="item"><span class="label"><span class="tag g1000">G1000</span>PFD VOLTS</span><span class="status">CHECK</span></li>
+  
   <li class="spacer"></li>
 
   <li class="item"><span class="label">Bat & Alt Master</span><span class="status">ON</span></li>
@@ -418,10 +420,10 @@ th {
 <div class="subsection-title">Normal Start</div>
 <ul class="checklist">
   <li class="item"><span class="label">Propeller Area</span><span class="status">CLEAR</span></li>
-  <li class="item"><span class="label">Ignition</span><span class="status">HOLD START, until Engine Fires</span></li>
+  <li class="item"><span class="label">Ignition</span><span class="status">HOLD START, until Engine fires</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">ADVANCE SMOOTHLY TO FULL RICH</span></li>
   <li class="item"><span class="label">Oil Pressure</span><span class="status">CHECK</span></li>
-  <li class="item"><span class="label">Throttle</span><span class="status">1.000 RPM</span></li>
+  <li class="item"><span class="label">Throttle</span><span class="status">1 000 RPM</span></li>
 </ul>
 
 <div class="subsection-title">Starting Flooded Engine</div>
@@ -429,9 +431,9 @@ th {
   <li class="item"><span class="label">AUX Fuel Pump</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">CUT-OFF</span></li>
   <li class="item"><span class="label">Throttle</span><span class="status">OPEN ½ TO FULL</span></li>
-  <li class="item"><span class="label">Ignition</span><span class="status">HOLD START, until Engine Fires</span></li>
+  <li class="item"><span class="label">Ignition</span><span class="status">HOLD START, until Engine fires</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">FULL RICH</span></li>
-  <li class="item"><span class="label">Throttle</span><span class="status">IDLE, then 1.000 RPM</span></li>
+  <li class="item"><span class="label">Throttle</span><span class="status">IDLE, then 1 000 RPM</span></li>
 </ul>
 <h3 class="group-title">After Start Before Taxi</h3>
 <ul class="checklist">
@@ -475,18 +477,18 @@ th {
   <li class="item"><span class="label">ATIS / ATC (Clearance)</span><span class="status">AS REQ</span></li>
   <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">SET LOCAL QNH</span></li>
   <li class="item"><span class="label"><span class="tag classic">CLASSIC</span>Autopilot Baro Ref.</span><span class="status">SET</span></li>
-  <li class="item"><span class="label">>Autopilot</span><span class="status">PRESELECT AS DES</span></li>
+  <li class="item"><span class="label">Autopilot</span><span class="status">PRESELECT AS DES</span></li>
   <li class="item"><span class="label">Transponder</span><span class="status">SQUAWK SET & STBY</span></li>
 </ul>
 <h3 id="taxi" class="group-title">Taxi</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Taxi Clearance)</span><span class="status">AS REQ</span></li>
   <li class="item grouped-block"><span class="label">Taxi Lights</span><span class="status">ON</span></li>
-  <li class="subitem grouped-block"><span class="label">→ Release Parking Brake</span><span class="status"></span></li>
-  <li class="subitem grouped-block"><span class="label">→ Check Braking and Steering</span><span class="status"></span></li>
-  <li class="subitem grouped-block"><span class="label">→ Check Engine & Flight Instruments</span><span class="status"></span></li>
-  <li class="subitem grouped-block"><span class="label">→ Max Taxi Speed = 20–30 kts (5 kts during turns)</span><span class="status"></span></li>
-  <li class="subitem grouped-block"><span class="label">→ When crossing a runway → strobes ON</span><span class="status"></span></li>
+  <li class="subitem grouped-block"><span class="label">→ release Parking Brake</span><span class="status"></span></li>
+  <li class="subitem grouped-block"><span class="label">→ check Braking and Steering</span><span class="status"></span></li>
+  <li class="subitem grouped-block"><span class="label">→ check Engine & Flight Instruments</span><span class="status"></span></li>
+  <li class="subitem grouped-block"><span class="label">→ max Taxi Speed = 20–30 kts (5 kts during turns)</span><span class="status"></span></li>
+  <li class="subitem grouped-block"><span class="label">→ when crossing a runway → strobes ON</span><span class="status"></span></li>
   <li class="group-end"></li>
 </ul>
 <h3 class="group-title">Before Takeoff – Engine Runup</h3>
@@ -507,7 +509,7 @@ th {
   <li class="item"><span class="label">Engine Instruments</span><span class="status">CHECK</span></li>
   <li class="item has-linked grouped-block"><span class="label">Full Throttle Static Runup</span><span class="status">PERFORM</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ Throttle FULL → verify 2 300 – 2 400 RPM</span><span class="status"></span></li>
-  <li class="linked-subitem grouped-block"><span class="label">→ above 3 000 ft lean Misture if necessary to gain max. RPM</span><span class="status"></span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ above 3 000 ft lean Mixture if necessary to gain max. RPM</span><span class="status"></span></li>
   <li class="group-end"></li>
   <li class="item"><span class="label">Throttle</span><span class="status">IDLE or AS REQ</span></li>
 </ul>
@@ -542,8 +544,8 @@ th {
     <thead>
       <tr style="border-bottom: 2px solid gray;">
         <th rowspan="2" style="text-align:center; border-bottom: none;">Speed Type</th>
-        <th rowspan="2" style="text-align:center; border-bottom: none;">Normal Takeoff</th>
-        <th colspan="3" style="text-align:center;">Short Field Takeoff</th>
+        <th rowspan="2" style="text-align:center; border-bottom: none;">NORMAL TAKEOFF</th>
+        <th colspan="3" style="text-align:center;">SHORT FIELD TAKEOFF</th>
       </tr>
       <tr style="border-bottom: 1px solid gray;">
         <th style="text-align:center;">2 200 lbs / 998 kg</th>
@@ -585,7 +587,7 @@ th {
         <td style="text-align:center;">110 KIAS</td>
       </tr>
       <tr>
-        <td>VFE - max Flaps Extended >10°)</td>
+        <td>VFE - max Flaps Extended >10°</td>
         <td style="text-align:center;">85 KIAS</td>
       </tr>
       <tr>
@@ -593,7 +595,7 @@ th {
         <td style="text-align:center;">62 KIAS</td>
       </tr>
       <tr>
-        <td>VX Best Angle of Climb (clean) – 10.000 ft</td>
+        <td>VX Best Angle of Climb (clean) – 10 000 ft</td>
         <td style="text-align:center;">67 KIAS</td>
       </tr>
       <tr>
@@ -601,7 +603,7 @@ th {
         <td style="text-align:center;">74 KIAS</td>
       </tr>
       <tr>
-        <td>Vy Best Angle of Climb (clean) – 10.000 ft</td>
+        <td>VY Best Angle of Climb (clean) – 10 000 ft</td>
         <td style="text-align:center;">72 KIAS</td>
       </tr>
     </tbody>
@@ -616,9 +618,9 @@ th {
   <li class="linked-subitem grouped-block"><span class="label">→ line up, brake and wait for ATC Clearence if required</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ check Flaps and Trim</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ release Brakes and advance Throttle to FULL OPEN</span></li>
-  <li class="linked-subitem grouped-block"><span class="label">→ @55 KIAS → rotate → to ~10° Pitch)</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ @55 KIAS → rotate → to ~10° Pitch</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ maintain 60 KIAS until clear of obstacles</span></li>
-  <li class="linked-subitem grouped-block"><span class="label">→ at safe altitude → Flaps UP (above 60 KIAS)</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ at safe Altitude → Flaps UP (above 60 KIAS)</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ accelerate to normal Climb Speed 75–85 KIAS</span></li>
   <li class="group-end"></li>
 </ul>
@@ -630,55 +632,40 @@ th {
   <li class="linked-subitem grouped-block"><span class="label">→ check Flaps 10° and Trim</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ advance Throttle to FULL OPEN</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ release Brakes</span></li>
-  <li class="linked-subitem grouped-block"><span class="label">→ @ VLiftOff → rotate → to ~10° Pitch)</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ @ VLiftOff → rotate → to ~10° Pitch</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ maintain V50ft until clear of Obstacles</span></li>
-  <li class="linked-subitem grouped-block"><span class="label">→ at safe altitude → Flaps UP (above 60 KIAS)</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ at safe Altitude → Flaps UP (above 60 KIAS)</span></li>
   <li class="linked-subitem grouped-block"><span class="label">→ accelerate to normal Climb Speed 75–85 KIAS</span></li>
   <li class="group-end"></li>
 </ul>
-<h3 class="group-title">After Takeoff / Climb – Po vzlete / Stúpanie</h3>
+<h3 class="group-title">After Takeoff / Climb</h3>
 <ul class="checklist">
   <li class="item"><span class="label">Climb Power & Speed</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Flaps</span><span class="status">UP</span></li>
   <li class="item"><span class="label">Taxi Light</span><span class="status">OFF</span></li>
   <li class="item"><span class="label">Landing Lights</span><span class="status">AS DES</span></li>
-  <li class="item"><span class="label">@ Transition Altitude</span><span class="status"></span></li>
+  <div class="subsection-title">@ Transition Altitude</div>
   <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">SET STD (29.92 / 1013)</span></li>
 </ul>
 
-<h3 class="group-title">Leaning the Mixture – Nastavenie zmesi</h3>
 <div style="overflow-x:auto;">
   <table style="width:100%; border-collapse: collapse; color: white;">
     <thead>
       <tr style="border-bottom: 1px solid gray;">
-        <th style="text-align:center;">Podmienka</th>
-        <th style="text-align:center;">Odporúčané nastavenie</th>
+        <th style="text-align:center;">LEANING THE MIXTURE</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Pri ≥ 75% výkonu motora</td>
-        <td style="text-align:center;">Použi FULL RICH</td>
-      </tr>
-      <tr>
-        <td>Pri < 75% výkonu motora</td>
-        <td style="text-align:center;">Lean podľa EGT</td>
-      </tr>
-      <tr>
-        <td>Odporúčané Lean</td>
-        <td style="text-align:center;">50°F Rich of EGT</td>
-      </tr>
-      <tr>
-        <td>Ekonomický Lean</td>
-        <td style="text-align:center;">Peak EGT</td>
-      </tr>
-      <tr>
-        <td>Lean za Peak EGT</td>
-        <td style="text-align:center;">Nie je schválený</td>
-      </tr>
-    </tbody>
-  </table>
+ </table>
 </div>
+<ul class="checklist">
+  <li class="item has-linked grouped-block"><span class="label"></span><span class="status"></span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ at and above 75% Engine Power → use FULL RICH</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ below 75% Engine Power:</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">  → recommended Lean = 50°F Rich of Peak EGT</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">  → best Economy Lean = Peak EGT</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ leaning further than Peak EGT is not approved</span></li>
+  <li class="group-end"></li>
+</ul>  
 <h3 class="group-title">Cruise Performance – Spotreba (GPH & KGPH)</h3>
 <div style="overflow-x:auto;">
   <table style="width:100%; border-collapse: collapse; color: white;">
@@ -694,60 +681,58 @@ th {
    <tbody>
   <!-- 75% POWER -->
   <tr><td colspan="5" style="text-align:center; font-weight:bold; padding-top:10px;">75% Power</td></tr>
-  <tr><td>2 000 ft</td><td style="text-align:center;">2 650</td><td style="text-align:center;">120</td><td style="text-align:center;">10.4</td><td style="text-align:center;">28.3</td></tr>
-  <tr><td>4 000 ft</td><td style="text-align:center;">2 650</td><td style="text-align:center;">122</td><td style="text-align:center;">10.4</td><td style="text-align:center;">28.3</td></tr>
-  <tr><td>6 000 ft</td><td style="text-align:center;">2 650</td><td style="text-align:center;">124</td><td style="text-align:center;">10.4</td><td style="text-align:center;">28.3</td></tr>
-  <tr><td>8 000 ft</td><td style="text-align:center;">2 650</td><td style="text-align:center;">126</td><td style="text-align:center;">10.4</td><td style="text-align:center;">28.3</td></tr>
+  <tr><td>2 000 ft</td><td style="text-align:center;">2 550</td><td style="text-align:center;">118</td><td style="text-align:center;">10.5</td><td style="text-align:center;"></td></tr>
+  <tr><td>4 000 ft</td><td style="text-align:center;">2 600</td><td style="text-align:center;">120</td><td style="text-align:center;">10.4</td><td style="text-align:center;"></td></tr>
+  <tr><td>6 000 ft</td><td style="text-align:center;">2 650</td><td style="text-align:center;">122</td><td style="text-align:center;">10.4</td><td style="text-align:center;"></td></tr>
+  <tr><td>8 000 ft</td><td style="text-align:center;">2 700</td><td style="text-align:center;">124</td><td style="text-align:center;">10.4</td><td style="text-align:center;"></td></tr>
   <tr><td>10 000 ft</td><td style="text-align:center;">n.a.</td><td style="text-align:center;">n.a.</td><td style="text-align:center;">n.a.</td><td style="text-align:center;">n.a.</td></tr>
   <tr><td>12 000 ft</td><td style="text-align:center;">n.a.</td><td style="text-align:center;">n.a.</td><td style="text-align:center;">n.a.</td><td style="text-align:center;">n.a.</td></tr>
 
   <!-- 65% POWER -->
   <tr><td colspan="5" style="text-align:center; font-weight:bold; padding-top:10px;">65% Power</td></tr>
-  <tr><td>2 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">110</td><td style="text-align:center;">9.0</td><td style="text-align:center;">24.5</td></tr>
-  <tr><td>4 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">112</td><td style="text-align:center;">9.0</td><td style="text-align:center;">24.5</td></tr>
-  <tr><td>6 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">114</td><td style="text-align:center;">9.0</td><td style="text-align:center;">24.5</td></tr>
-  <tr><td>8 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">116</td><td style="text-align:center;">9.0</td><td style="text-align:center;">24.5</td></tr>
-  <tr><td>10 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">117</td><td style="text-align:center;">9.0</td><td style="text-align:center;">24.5</td></tr>
-  <tr><td>12 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">117</td><td style="text-align:center;">9.0</td><td style="text-align:center;">24.5</td></tr>
+  <tr><td>2 000 ft</td><td style="text-align:center;">2 400</td><td style="text-align:center;">110</td><td style="text-align:center;">9.0</td><td style="text-align:center;">5</td></tr>
+  <tr><td>4 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">112</td><td style="text-align:center;">9.0</td><td style="text-align:center;"></td></tr>
+  <tr><td>6 000 ft</td><td style="text-align:center;">2 500</td><td style="text-align:center;">114</td><td style="text-align:center;">9.0</td><td style="text-align:center;"></td></tr>
+  <tr><td>8 000 ft</td><td style="text-align:center;">2 550</td><td style="text-align:center;">115</td><td style="text-align:center;">9.0</td><td style="text-align:center;">5</td></tr>
+  <tr><td>10 000 ft</td><td style="text-align:center;">2 600</td><td style="text-align:center;">117</td><td style="text-align:center;">9.0</td><td style="text-align:center;"></td></tr>
+  <tr><td>12 000 ft</td><td style="text-align:center;">2 650</td><td style="text-align:center;">120</td><td style="text-align:center;">9.0</td><td style="text-align:center;"></td></tr>
 
   <!-- 55% POWER -->
   <tr><td colspan="5" style="text-align:center; font-weight:bold; padding-top:10px;">55% Power</td></tr>
-  <tr><td>2 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">100</td><td style="text-align:center;">7.8</td><td style="text-align:center;">21.3</td></tr>
-  <tr><td>4 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">102</td><td style="text-align:center;">7.8</td><td style="text-align:center;">21.3</td></tr>
-  <tr><td>6 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">104</td><td style="text-align:center;">7.8</td><td style="text-align:center;">21.3</td></tr>
-  <tr><td>8 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">106</td><td style="text-align:center;">7.8</td><td style="text-align:center;">21.3</td></tr>
-  <tr><td>10 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">107</td><td style="text-align:center;">7.8</td><td style="text-align:center;">21.3</td></tr>
-  <tr><td>12 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">107</td><td style="text-align:center;">7.8</td><td style="text-align:center;">21.3</td></tr>
+  <tr><td>2 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">100</td><td style="text-align:center;">7.8</td><td style="text-align:center;"></td></tr>
+  <tr><td>4 000 ft</td><td style="text-align:center;">2 300</td><td style="text-align:center;">102</td><td style="text-align:center;">7.8</td><td style="text-align:center;"></td></tr>
+  <tr><td>6 000 ft</td><td style="text-align:center;">2 350</td><td style="text-align:center;">104</td><td style="text-align:center;">7.8</td><td style="text-align:center;"></td></tr>
+  <tr><td>8 000 ft</td><td style="text-align:center;">2 400</td><td style="text-align:center;">106</td><td style="text-align:center;">7.8</td><td style="text-align:center;"></td></tr>
+  <tr><td>10 000 ft</td><td style="text-align:center;">2 450</td><td style="text-align:center;">108</td><td style="text-align:center;">7.8</td><td style="text-align:center;"></td></tr>
+  <tr><td>12 000 ft</td><td style="text-align:center;">2 500</td><td style="text-align:center;">109</td><td style="text-align:center;">7.8</td><td style="text-align:center;"></td></tr>
 
   <!-- 45% POWER -->
   <tr><td colspan="5" style="text-align:center; font-weight:bold; padding-top:10px;">45% Power</td></tr>
-  <tr><td>2 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">90</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
-  <tr><td>4 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">92</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
-  <tr><td>6 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">94</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
-  <tr><td>8 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">96</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
-  <tr><td>10 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">97</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
-  <tr><td>12 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">97</td><td style="text-align:center;">6.7</td><td style="text-align:center;">18.3</td></tr>
+  <tr><td>2 000 ft</td><td style="text-align:center;">2 100</td><td style="text-align:center;">90</td><td style="text-align:center;">6.7</td><td style="text-align:center;"></td></tr>
+  <tr><td>4 000 ft</td><td style="text-align:center;">2 150</td><td style="text-align:center;">92</td><td style="text-align:center;">6.7</td><td style="text-align:center;"></td></tr>
+  <tr><td>6 000 ft</td><td style="text-align:center;">2 200</td><td style="text-align:center;">94</td><td style="text-align:center;">6.7</td><td style="text-align:center;"></td></tr>
+  <tr><td>8 000 ft</td><td style="text-align:center;">2 250</td><td style="text-align:center;">95</td><td style="text-align:center;">6.7</td><td style="text-align:center;"></td></tr>
+  <tr><td>10 000 ft</td><td style="text-align:center;">2 300</td><td style="text-align:center;">96</td><td style="text-align:center;">6.7</td><td style="text-align:center;"></td></tr>
+  <tr><td>12 000 ft</td><td style="text-align:center;">2 350</td><td style="text-align:center;">97</td><td style="text-align:center;">6.7</td><td style="text-align:center;"></td></tr>
 </tbody>
   </table>
   <p style="margin-top:10px; color: gray; font-style: italic;">
   All data for recommended Lean Mixture (50°F / ~+10°C Rich of Peak EGT).
 </p>
-<h3 id="cruise" class="group-title">Cruise – Horizontálny let</h3>
+<h3 id="cruise" class="group-title">Cruise</h3>
 <ul class="checklist">
   <li class="item"><span class="label">Cruise Power</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">LEAN AS REQ</span></li>
 </ul>
-<h3 class="group-title">Top of Descent – Pravidlo palca</h3>
-<p style="margin-bottom:10px; font-style: italic; color: gray;">
-  Vzorec: <strong>(Cruise Altitude – Target Altitude) / 1 000 × Faktor + 10 = vzdialenosť v NM</strong>
-</p>
+<h3 class="group-title">Top of Descent – RULE OF THUMB</h3>
+<p style="margin-bottom:10px; font-style: italic; color: gray;"><strong>(Cruise Altitude – Target Altitude) / 1 000 × Faktor + 10 = required Distance in NM</strong></p>
 
 <div style="overflow-x:auto;">
   <table style="width:100%; border-collapse: collapse; color: white;">
     <thead>
       <tr style="border-bottom: 1px solid gray;">
-        <th style="text-align:center;">Uhol zostupu</th>
-        <th style="text-align:center;">Faktor</th>
+        <th style="text-align:center;">Descent Path Angle</th>
+        <th style="text-align:center;">Factor</th>
       </tr>
     </thead>
     <tbody>
@@ -757,42 +742,52 @@ th {
     </tbody>
   </table>
 </div>
-<h3 class="group-title">Descent Preparation – najneskôr 25 NM pred TOD</h3>
+<h3 class="group-title">Descent Preparation</h3>
+<div class="subsection-title">LATEST 25 NM BEFORE TD</div>  
 <ul class="checklist">
   <li class="item"><span class="label">Approach & Landing Data (Rwy, Weather)</span><span class="status">CONFIRM</span></li>
-  <li class="item"><span class="label">GPS Flight Plan Alignment</span><span class="status">AS DES</span></li>
-  <li class="item"><span class="label">ILS / Final Fix for ILS Approach Page</span><span class="status">INSERT FOR REFERENCE VS</span></li>
+  <li class="item has-linked grouped-block"><span class="label">GPS Flight Plan Approach</span><span class="status">AS DES</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ optional: set Final Fix Altitude in VNAV Page for Reference VS</span><span class="status"></span></li>
+  <li class="group-end"></li>
   <li class="item"><span class="label">ILS Frequency</span><span class="status">CONFIRM & SET</span></li>
   <li class="item"><span class="label">Minimums</span><span class="status">SET</span></li>
 </ul>
-<h3 id="descent" class="group-title">Descent – Zahájenie klesania</h3>
+<h3 id="descent" class="group-title">Descent</h3>
 <ul class="checklist">
   <li class="item"><span class="label">ATC (Descent Clearance)</span><span class="status">AS REQ</span></li>
-  <li class="item"><span class="label">@ TOD</span><span class="status">INITIATE DESCENT</span></li>
-  <li class="item"><span class="label">Preselect Descent Altitude</span><span class="status">USE FINAL FIX / LAST WP</span></li>
-  <li class="item"><span class="label">Autopilot Descent Mode</span><span class="status">ACTIVATE</span></li>
-  <li class="item"><span class="label">CDU VNAV Page</span><span class="status">USE TO ADJUST VS</span></li>
-  <li class="item"><span class="label">Pressurization Controller</span><span class="status">SET</span></li>
-  <li class="item"><span class="label">Target Cabin Altitude</span><span class="status">500 ft ABOVE LANDING ALT</span></li>
+  <div class="subsection-title">@ TOD</div>  
+  <li class="item has-linked grouped-block"><span class="label">Descent</span><span class="status">INITIATE</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ preselect Descent Altitude use Final Fix or last WP before</span><span class="status"></span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ activate AP Descent Mode</span><span class="status"></span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ use CDU VNAV Page and Altitude on Final Fix to adjust VS</span><span class="status"></span></li>
+  <li class="group-end"></li>
+  <li class="item has-linked grouped-block"><span class="label">Pressurization Controller</span><span class="status">SET</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ set Target Cabin Alt to 500 ft amove Landing Pressure Alt</span><span class="status"></span></li>
+  <li class="group-end"></li>
   <li class="item"><span class="label">Pressurization / Temp / Oxygen</span><span class="status">MONITOR</span></li>
-</ul>
-<h3 class="group-title">@ Transition Flight Level (ak nad FL100)</h3>
-<ul class="checklist">
+  <div class="subsection-title">@ TRANSITION FLIGHT LEVEL (if above FL 100)</div>
   <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">SET LOCAL QNH</span></li>
 </ul>
-<p style="margin-top:10px; color: gray; font-style: italic;">
-  For a 3° descent path: calculate TOD, activate AP VS Mode at TOD, and match vertical speed to 5 × Ground Speed. Max recommended descent speed is 129 KIAS. Adjust VS regularly and optionally cross-check with VNAV Page Target VS.
-</p>
-<h3 class="group-title">Visual Pattern Approach – ~10 NM pred vstupom do okruhu</h3>
+
+<ul class="checklist">
+  <div class="subsection-title">HOW TO FLY THE DESCENT</div>
+  <li class="item has-linked grouped-block"><span class="label"></span><span class="status"></span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ calculate TOD for 3° Path</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ at TOD activate AP VS Mode, match VS to 5x Ground Speed</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ maintain Power and Speed as desired (max. 129 KIAS)</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ regularly adjust VS to match 5x Ground Speed</span></li>
+  <li class="linked-subitem grouped-block"><span class="label">→ optional: x-check with VNAV Page Target VS</span></li>
+  <li class="group-end"></li>
+</ul>  
+
+<h3 class="group-title">Visual Pattern Approach</h3>
+<div class="subsection-title">BEFORE ENTERING PATTERN ~10 NM OUT</div>  
 <ul class="checklist">
   <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">CHECK LOCAL QNH</span></li>
   <li class="item"><span class="label">Landing Lights</span><span class="status">AS REQ / ON</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">AS REQ / FULL RICH</span></li>
 </ul>
-<p style="margin-top:10px; color: gray; font-style: italic;">
-  Vizuálny okruh sa zvyčajne začína približne 10 NM od letiska. Pred vstupom do okruhu je dôležité nastaviť tlak (QNH), zapnúť pristávacie svetlá a upraviť zmes paliva podľa výšky a výkonu. Vizuálny prístup vyžaduje neustále sledovanie polohy voči dráhe, najmä pri otočke na základný a finálny úsek.
-</p>
-</div>
+
   <button id="scrollTopBtn" title="Späť na začiatok">↑</button>
   <button id="menuToggle">☰</button>
   <div id="sectionMenu">
