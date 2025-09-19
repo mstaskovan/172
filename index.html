@@ -513,7 +513,7 @@ th {
   <li class="group-end"></li>
   <li class="item"><span class="label">Throttle</span><span class="status">IDLE or AS REQ</span></li>
 </ul>
-<h3 id="preflight" class="group-title">Before Takeoff</h3>
+<h3 id="beftak" class="group-title">Before Takeoff</h3>
 <div class="subsection-title">HOLDING SHORT</div>
 <ul class="checklist">
   <li class="item"><span class="label">Doors</span><span class="status">CLOSED & LOCKED</span></li>
@@ -610,7 +610,7 @@ th {
   </table>
 </div>
 
-  <h3 class="group-title">Takeoff</h3>
+  <h3 id="takoff" class="group-title">Takeoff</h3>
   <div class="subsection-title">Normal Takeoff</div>
 <ul class="checklist">
   <li class="item"><span class="label"></span><span class="status"></span></li>
@@ -638,7 +638,7 @@ th {
   <li class="linked-subitem grouped-block"><span class="label">→ accelerate to normal Climb Speed 75–85 KIAS</span></li>
   <li class="group-end"></li>
 </ul>
-<h3 class="group-title">After Takeoff / Climb</h3>
+<h3 id="afttak" class="group-title">After Takeoff / Climb</h3>
 <ul class="checklist">
   <li class="item"><span class="label">Climb Power & Speed</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Flaps</span><span class="status">UP</span></li>
@@ -724,7 +724,7 @@ th {
   <li class="item"><span class="label">Cruise Power</span><span class="status">SET</span></li>
   <li class="item"><span class="label">Mixture</span><span class="status">LEAN AS REQ</span></li>
 </ul>
-<h3 class="group-title">Top of Descent – RULE OF THUMB</h3>
+<h3 id="topdes" class="group-title">Top of Descent – RULE OF THUMB</h3>
 <p style="margin-bottom:10px; font-style: italic; color: gray;"><strong>(Cruise Altitude – Target Altitude) / 1 000 × Faktor + 10 = required Distance in NM</strong></p>
 
 <div style="overflow-x:auto;">
@@ -742,7 +742,7 @@ th {
     </tbody>
   </table>
 </div>
-<h3 class="group-title">Descent Preparation</h3>
+<h3 id="despre" class="group-title">Descent Preparation</h3>
 <div class="subsection-title">LATEST 25 NM BEFORE TD</div>  
 <ul class="checklist">
   <li class="item"><span class="label">Approach & Landing Data (Rwy, Weather)</span><span class="status">CONFIRM</span></li>
@@ -780,7 +780,7 @@ th {
   <li class="group-end"></li>
 </ul>  
 
-<h3 class="group-title">Visual Pattern Approach</h3>
+<h3 id="vispatapp" class="group-title">Visual Pattern Approach</h3>
 <div class="subsection-title">BEFORE ENTERING PATTERN ~10 NM OUT</div>  
 <ul class="checklist">
   <li class="item"><span class="label">Altimeters / Baro Ref</span><span class="status">CHECK LOCAL QNH</span></li>
@@ -795,9 +795,17 @@ th {
     <ul>
       <li class="menu-item" data-target="preflight">Preflight</li>
       <li class="menu-item" data-target="extins">Exterior Inspection</li>
+      <li class="menu-item" data-target="engsta">Engine Start</li>
+      <li class="menu-item" data-target="beftax">After start before taxi</li>
       <li class="menu-item" data-target="taxi">Taxi</li>
+      <li class="menu-item" data-target="beftakengrun">Berfore takeoff - engine runup</li>
+      <li class="menu-item" data-target="beftak">Berfore takeoff</li>
+      <li class="menu-item" data-target="takoff">Takeoff</li>
+      <li class="menu-item" data-target="afttak">After takeoff / Climb</li>
       <li class="menu-item" data-target="cruise">Cruise</li>
+      <li class="menu-item" data-target="despre">Descent preparation</li>      
       <li class="menu-item" data-target="descent">Descent</li>
+      <li class="menu-item" data-target="vispatapp">Visual Pattern Approach</li>      
       <!-- doplň ďalšie sekcie -->
     </ul>
   </div>
