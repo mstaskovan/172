@@ -826,7 +826,7 @@ th {
     <li class="linked-subitem grouped-block"><span class="label">→ brake as required</span><span class="status"></span></li>
     <li class="group-end"></li>
 </ul>
-<h3 id="instapp" class="group-title">INSTRUMENT APPROACH & ILS</h3>
+<h3 id="insapp" class="group-title">INSTRUMENT APPROACH & ILS</h3>
 <div class="subsection-title"></div>
 <ul class="checklist">
     <li class="linked-subitem grouped-block"><span class="label" style="color: red;">Intercept localizer first and then glide slope from below!</span><span class="status"></span></li>
@@ -954,7 +954,7 @@ th {
         </tbody>
     </table>
 </div>
-  <h3 class="group-title">Go-Around</h3>
+  <h3 id="goaro" class="group-title">Go-Around</h3>
 <ul class="checklist">
     <li class="linked-subitem grouped-block"><span class="label">→ Throttle FULL</span><span class="status"></span></li>
     <li class="linked-subitem grouped-block"><span class="label">→ Flaps 20°</span><span class="status"></span></li>
@@ -963,7 +963,7 @@ th {
     <li class="linked-subitem grouped-block"><span class="label">→ accelerate to normal Climb Speed 75-85 KIAS</span><span class="status"></span></li>
     <li class="group-end"></li>
 </ul>
-  <h3 class="group-title">AFTER LANDING</h3>
+  <h3 id="aftlan" class="group-title">AFTER LANDING</h3>
 <div class="subsection-title">AFTER VACATING THE RUNWAY</div>
 <ul class="checklist">
     <li class="item"><span class="label">Landing Lights</span><span class="status">OFF</span></li>
@@ -975,14 +975,14 @@ th {
     <li class="item"><span class="label">WX Radar</span><span class="status">OFF</span></li>
     <li class="item"><span class="label">Mixture</span><span class="status">AS REQ / LEAN</span></li>
 </ul>
-  <h3 class="group-title">TAXI IN</h3>
+  <h3 id="taxin" class="group-title">TAXI IN</h3>
 <ul class="checklist">
     <li class="item"><span class="label" style="color: green;">ATC (Taxi Clearance)</span><span class="status">AS REQ</span></li>
     <li class="linked-subitem grouped-block"><span class="label">→ max. Taxi Speed = 20-30 kts (5 kts during Turns)</span><span class="status"></span></li>
     <li class="linked-subitem grouped-block"><span class="label">→ when crossing a Runway → Strobes → Anti-Collision</span><span class="status"></span></li>
     <li class="group-end"></li>
 </ul>
-  <h3 class="group-title">PARKING & SHUTDOWN</h3>
+  <h3 id="parshu" class="group-title">PARKING & SHUTDOWN</h3>
 <ul class="checklist">
     <li class="item"><span class="label">Parking Brake</span><span class="status">SET</span></li>
     <li class="item"><span class="label">Throttle</span><span class="status">IDLE</span></li>
@@ -997,7 +997,7 @@ th {
     <li class="item"><span class="label">Fuel Selector</span><span class="status">LOWER WING</span></li>
     <li class="item"><span class="label"><span class="tag wbsim">WB SIM</span>ADF Menu → Options/Chocks/Covers</span><span class="status">AS DES</span></li>
 </ul>
-  <h3 class="group-title">ABBREVIATIONS / LEGEND + CHANGELOG</h3>
+  <h3 id="abbleg" class="group-title">ABBREVIATIONS / LEGEND</h3>
 <div class="subsection-title">CHECKLIST</div>
 <ul class="checklist">
     <li class="item"><span class="label">MP</span><span class="status">Main Panel</span></li>
@@ -1015,7 +1015,7 @@ th {
     <li class="item"><span class="label">EXT</span><span class="status">extinguished / erloschen</span></li>
     <li class="item"><span class="label">(d.o.w)</span><span class="status">depending on aircraft actual gross weight</span></li>
 </ul>
-  <h3 class="group-title">AVIATION & AIRCRAFT</h3>
+  <div class="subsection-title">AVIATION & AIRCRAFT</div>
 <ul class="checklist">
     <li class="item"><span class="label">ATC</span><span class="status">Air Traffic Control</span></li>
     <li class="item"><span class="label">ATS</span><span class="status">Auto Throttle System</span></li>
@@ -1085,7 +1085,11 @@ th {
       <li class="menu-item" data-target="despre">Descent preparation</li>      
       <li class="menu-item" data-target="descent">Descent</li>
       <li class="menu-item" data-target="vispatapp">Visual Pattern Approach</li>      
-      <!-- doplň ďalšie sekcie -->
+      <li class="menu-item" data-target="insapp">Instrument approach & ILS</li>      
+      <li class="menu-item" data-target="aftlan">After landing</li>      
+      <li class="menu-item" data-target="taxin">Taxi IN</li>      
+      <li class="menu-item" data-target="parshu">Parking & shutdown</li>
+      <li class="menu-item" data-target="abbleg">Abbereviations / legend</li>
     </ul>
   </div>
 </div>
